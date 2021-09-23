@@ -22,18 +22,14 @@ function disable(ckType){
     }    
 }
 
-function checkforfive(){
-    var markedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');  
-  for (var checkbox of markedCheckbox) {  
-    document.body.append(checkbox.value + ' ');
-    document.write  
-  }  
-    
-  var array = []
-var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+function getValue() {
+  var checks = document.getElementsByClassName('checks');
+  var str = '';
 
-for (var i = 0; i < checkboxes.length; i++) {
-  array.push(checkboxes[i].value)
-}
-    
+  for ( i = 0; i < checks.length; i++) {
+      if ( checks[i].checked === true ) {
+          str += checks[i].value + " , ";
+      }
+  }
+  alert(str);
 }
