@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
 </head>
 <style>
     body {
@@ -15,6 +15,12 @@
       margin-right: 20px;
       color: #fff;
     }
+    .whole{
+ display:flex;
+  flex-wrap: wrap;
+
+  transition:color 0.2s linear;
+    }
     
      table {
       width: 100%;
@@ -23,34 +29,58 @@
     }
      th {
       border: none;
-      background-color: #5a189a;
+      background-color: #17032c;
       color: white;
       text-transform: uppercase;
       padding: 10px;
     }
     
     tr,td {
-      color: white;
+      color: black;
       border: none;
-      background-color: #3c096c;
+      background-color: #7a589b;
       PADDING:8PX;
     }
     .p{
         text-align:center
     }
+    button{
+       float:right;
+       font-size: 20PX;
+    }
+    .button2{
+        background: #8E2DE2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #24c64f;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  margin: 0 auto;
+  margin-top: 50px;
+  transition: 0.25s;
+  width: 153px;
+  margin:20px;
+    }
+.button2:hover{
+    box-shadow: 0px 1px 18px violet;
+}
 </style>
 </head>
     <body>
-        
-        
+        <script type="text/javascript" src="script.js"> </script>
         <form action="preview.html" method="GET">
         <div class="top">
             <p class="name">Name:Reshma</p>
              <p class="id">Student-ID:989746</p>
         </div>
-        <div class="whole"></div>
-    <table>
-      <tr>
+     <div class="whole">
+       <table>
+       <tr>
         <th>term</th>
         <th>SINO</th>
         <th>finance</th>
@@ -157,11 +187,10 @@
         
       </tr>
       </div>
-       <div class="hi">
+       
      
         <div class="hi">
-      <tr>
-        
+        <tr>
         <td rowspan="5">TERM-2</td>
         <td>1</td>
         <td>Financial Modelling - Raghu Iyer
@@ -508,13 +537,17 @@
           
         </tr>
     </div>
- </div>
- <div class="container1" style="margin: 100px 50px;
- font-size: 20px;">
-     
-     <input type= "submit" value="next" id="btn" onclick="getValue()">
- </div>
+        </table>
+    
+</div>
+ 
+ <div class="bottom">
+    <div class="container1" style="margin: 100px 50px;
+    font-size: 20px;">
+        
+       <input type="submit" value="preview" class="button2" id="btn" onclick="getValue()">
+    </div>
+   </div>
 </form>
-<script type="text/javascript" src="script.js"> </script>
 </body>
 </html>
