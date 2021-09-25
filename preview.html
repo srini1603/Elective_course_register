@@ -7,22 +7,12 @@
     <title>Document</title>
 </head>
 <style>
-    *{
-  margin:0px;
-  padding: 0;
-  box-sizing: border-box;
-}
+   
 body,html{
  height:100%;
 
 }
-p{
-  
-  padding:-10px;
-  margin-top: 20px;
-  text-rendering: auto;
-  text-indent: 20px;
-}
+
 h1{
   text-align: center;
 }
@@ -33,71 +23,111 @@ h1{
   transition:color 0.2s linear;
 }
 .card-item{
-  height: 470px;
-  width:600px;
+  height: 650px;
+  width:900px;
   margin:90px;
   background-color:white;
   border-radius: 15px;
   height: 650px;
-  width: 600px;
+  
   background:#f2f2f2;
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 0 20px 8px #d0d0d0;
 }
-li{
-    list-style: none;
-    padding:4px;
-}
-.name{
- text-align: center;
-}
-.name1{
-    text-align: left;
-    text-align: justify;
+p{
+  text-align: center;
 }
 h1{
-    text-align: center;
-    font-weight: 900;
-    padding-top: 20px;
-    
+  margin-top: 30px;
 }
-h2{
-    text-align: center;
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  margin-top: 80px;
 }
 
-span{
-    margin-left:30px;
+table {
+	
+  border-collapse: collapse;
+  
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
-hr{
-    border:1px solid black;
+
+th,
+td {
+	padding: 15px;
+	color: #fff;
+  background-color: rgba(255,255,255,0.2);
 }
+
+th {
+	text-align: left;
+}
+
+
+	th {
+		background-color: #55608f;
+	}
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  justify-content: center;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
 <body>
-  <form>
-    
-    <section class="card">
-        <div class="card-item">
-
-          <h1>Preview</h1><br>
-           <ul>
-               <li><p class="name"></p>Name:RESHMA</li>
-               <li><p class="name"></p>Student-ID:0009876</li>
-               <h2>selected subjects</h2>
-               <li><p class="name1"><span>subject 1</span>:<span id="course1">c1</span></p></li>
-               <li><p class="name1"><span>subject 2</span><span id="course2">c2</p></li>
-               <li><p class="name1"><span>subject 3</span><span id="course3">c3</p></li>
-               <li><p class="name1"><span>subject 4</span><span id="course4">c4</p></li>
-               <li><p class="name1"><span>subject 5</span><span id="course5">c5</p></li>
-               
-               
-
-           </ul>
-        </div>
+          <h1>Preview Section</h1><br>
+               <p class="name">Name:RESHMA</p>
+               <p class="name">Student-ID:0009876</p>
+              <form action="#" method="GET">
+               <div class="card">
+               <table class="center" height="350px" width="500px">
+                <tr>
+                  <th>SINO.</th>
+                  <th>Subjects</th>
+                  
+                </tr>
+                <tr>
+                  <td>Subject 1:</td>
+                  <td id="course1">1</td>
+                </tr>
+                <tr>
+                  
+                  <td>Subject 2:</td>
+                  <td id="course2">2</td>
+                </tr>
+                <tr>
+                  <td>Subject 3:</td>
+                  <td id="course3">3</td>
+                </tr>
+                <tr>
+                  <td>Subject 4:</td>
+                  <td id="course4">4</td>
+                </tr>
+                <tr>
+                  <td>Subject 5:</td>
+                  <td id="course5">5</td>
+                </tr>
+              </table>
+            </div>
+          </form>
+           </div> 
+          </div> 
     </section>
-  
-  </form>
-  <script lang="text/javascript" src="script.js">
-  </script>
+    <script lang="text/javascript" src="script.js"></script>
 </body>
 </html>
