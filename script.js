@@ -1,9 +1,12 @@
 
 function disable(ckType){
     var ckName = document.getElementsByName(ckType.name);
-    var checked = document.getElementById(ckType.id);
+    var checked1 = document.getElementById(ckType.id);
+    var limit=5;
+    var checks1 = document.getElementsByClassName('checks');
+  
 
-    if (checked.checked) {
+    if (checked1.checked) {
       for(var i=0; i < ckName.length; i++){
 
           if(!ckName[i].checked){
@@ -16,9 +19,31 @@ function disable(ckType){
     else {
       for(var i=0; i < ckName.length; i++){
         ckName[i].disabled = false;
+        
       } 
-    }    
-}
+    }
+    if(checked1.checked) {  
+    for(var i=0; i < checks1.length; i++){
+
+        var total =0;
+        for (var i = 0; i < checks1.length; i++) {
+          total += (checks1[i].checked) ? 1 : 0;
+
+      }
+      if (total > limit) {
+				console.log("You can select maximum of " + limit + " checkbox.");
+				alert("You can select maximum of " + limit + " courses");
+				checked1.checked = false;
+			}
+
+    }
+      
+    }
+  }
+    
+
+    
+
 
 var str = '';
 var  results=new Array;
@@ -29,7 +54,7 @@ function getValue() {
 
   for ( i = 0; i < checks.length; i++) {
       if ( checks[i].checked === true ) {
-          str += checks[i].value + "  ";
+          str += checks[i].value + " , ";
           results.push(checks[i].value);
       }
       
