@@ -1,50 +1,116 @@
+var dis = new Array;
 
-function disable(ckType){
-    var ckName = document.getElementsByName(ckType.name);
-    var checked1 = document.getElementById(ckType.id);
-    var limit=5;
-    var checks1 = document.getElementsByClassName('checks');
-  
+function disable(ck)
+{
+var term1 = document.getElementsByClassName('term1');
+var term2 = document.getElementsByClassName('term2');
+var term3 = document.getElementsByClassName('term3');
+var term4 = document.getElementsByClassName('term4');
+var ckid = document.getElementById(ck.id);
+var ckname =document.getElementsByName(ck.name)
+var limit =5;
+var checkboxs =document.querySelectorAll('.checkbox');
+var bol = dis.includes(ckname)
 
-    if (checked1.checked) {
-      for(var i=0; i < ckName.length; i++){
+if(ckid.checked) {  
+  for(var i=0; i < term1.length; i++){
 
-          if(!ckName[i].checked){
-              ckName[i].disabled = true;
-          }else{
-              ckName[i].disabled = false;
-          }
-      } 
-    }
-    else {
-      for(var i=0; i < ckName.length; i++){
-        ckName[i].disabled = false;
-        
-      } 
-    }
-    if(checked1.checked) {  
-    for(var i=0; i < checks1.length; i++){
-
-        var total =0;
-        for (var i = 0; i < checks1.length; i++) {
-          total += (checks1[i].checked) ? 1 : 0;
-
-      }
-      if (total > limit) {
-				console.log("You can select maximum of " + limit + " checkbox.");
-				alert("You can select maximum of " + limit + " courses");
-				checked1.checked = false;
-			}
+  var total =0;
+  for (var i = 0; i < term1.length; i++) {
+        total += (term1[i].checked) ? 1 : 0;
 
     }
-      
-    }
+    if (total > limit) {
+      console.log("You can select maximum of " + limit + " checkbox.");
+      alert("You can select maximum of " + limit + " courses");
+      ckid.checked = false;
+      return false;
   }
-    
+ }
+}
 
-    
+if(ckid.checked) {  
+  for(var i=0; i < term2.length; i++){
+
+  var total =0;
+  for (var i = 0; i < term2.length; i++) {
+        total += (term2[i].checked) ? 1 : 0;
+
+    }
+    if (total > limit) {
+      console.log("You can select maximum of " + limit + " checkbox.");
+      alert("You can select maximum of " + limit + " courses");
+      ckid.checked = false;
+      return false;
+  }
+ }
+}
+
+if(ckid.checked) {  
+  for(var i=0; i < term3.length; i++){
+
+  var total =0;
+  for (var i = 0; i < term3.length; i++) {
+        total += (term3[i].checked) ? 1 : 0;
+
+    }
+    if (total > limit) {
+      console.log("You can select maximum of " + limit + " checkbox.");
+      alert("You can select maximum of " + limit + " courses");
+      ckid.checked = false;
+      return false;
+  }
+ }
+}
+
+if(ckid.checked) {  
+  for(var i=0; i < term4.length; i++){
+
+  var total =0;
+  for (var i = 0; i < term4.length; i++) {
+        total += (term4[i].checked) ? 1 : 0;
+
+    }
+    if (total > limit) {
+      console.log("You can select maximum of " + limit + " checkbox.");
+      alert("You can select maximum of " + limit + " courses");
+      ckid.checked = false;
+      return false;
+  }
+ }
+}
+
+  for(var i=0; i < 1; i++)
+  {
+
+    if(bol){
+      if(ckid.checked==true){
+        alert('selected');
+        ckid.checked=false;
+        return false;
+        }
+      else{
+        dis =dis.filter(e=> e !== ckname);
+        }}
+       else{
+
+      if(ckid.checked==true){
+        dis.push(ckname);
+    }
+      else{
+        dis =dis.filter(e=> e !== ckname);
+    }}
+
+  }
+
+console.log(dis);
 
 
+
+}
+
+ 
+  
 var str = '';
 var  results=new Array;
 
