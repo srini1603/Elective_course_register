@@ -1,11 +1,6 @@
 var dis = new Array;
 var mincout = 16;
 
-var  t1_course= new Array;
-var  t2_course= new Array;
-var  t3_course= new Array;
-var  t4_course= new Array;
-
 function disable(ck)
 {
 var term1 = document.getElementsByClassName('term1');
@@ -114,11 +109,8 @@ if(ckid.checked) {
 console.log(dis);
 
 
-
-
 }
 
- 
   
 var str = '';
 var  results=new Array;
@@ -158,5 +150,14 @@ document.getElementById("course9").innerHTML = page2array[8];
 document.getElementById("course10").innerHTML = page2array[9];
 document.getElementById("course11").innerHTML = page2array[10];
 document.getElementById("course12").innerHTML = page2array[11];
+document.getElementById("course13").innerHTML = page2array[12];
+document.getElementById("course14").innerHTML = page2array[13];
+document.getElementById("course15").innerHTML = page2array[14];
+document.getElementById("course16").innerHTML = page2array[15];
+document.getElementById("course17").innerHTML = page2array[16];
+document.getElementById("course18").innerHTML = page2array[17];
+document.getElementById("course19").innerHTML = page2array[18];
+document.getElementById("course20").innerHTML = page2array[19];
+
 console.log(results);
         }
