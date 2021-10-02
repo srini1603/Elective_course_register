@@ -64,24 +64,29 @@ td {
   background-color: rgba(255,255,255,0.2);
 }
 
-th {
+th 
+{
 	text-align: left;
 }
 
 
-	th {
+	th 
+  {
 		background-color: #55608f;
 	}
-  table {
+  table 
+  {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   justify-content: center;
   margin-top: 30px;
 }
-th{
+th
+{
   text-align: center;
 }
-td, th {
+td, th 
+{
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -104,6 +109,77 @@ p{
 .term{
   margin-left: 20px;
 }
+.hai{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.center{
+  height: 100px;
+  width:600px;
+  margin-top: -10px;
+  margin-bottom:10px;
+}
+.card{
+  margin-top:    10px;
+  margin-bottom: 20px;
+  margin-left:   10px;
+  margin-right:  10px;
+}
+.buttons{
+  margin-right:130px;
+  margin-left: 130px;
+  margin-bottom: 30px;
+  margin-top: -20px;
+}
+.button3{
+  float:right;
+  margin-right: 300px;
+  margin-bottom: 10px;
+}
+.button3{
+  background: #8E2DE2;  
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #24c64f;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  transition: 0.25s;
+  width: 153px;
+  margin:20px;
+}
+.button2{
+  float:left;
+  margin-left: 300px;
+  margin-bottom: 10px;
+}
+.button2:hover
+{
+    box-shadow: 0px 1px 18px violet;
+}
+.button3:hover
+{
+    box-shadow: 0px 1px 18px violet;
+}
+.button2{
+  background: #8E2DE2;  
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #24c64f;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  transition: 0.25s;
+  width: 153px;
+  margin:20px;
+}
 </style>
 <body>
           <h1>Preview Section</h1><br>
@@ -111,40 +187,41 @@ p{
                <p class="name">Student-ID:0009876</p>
               
               <form action="">
+               <section class="hai">
                <div class="card">
-               <table class="center" height="100px" width="500px" >
+               <table class="center" height="100px" width="600px" >
                 <tr>
               <th colspan="2" class="term">Term 1</th>
               
                 </tr>
                <tr>
-                  <th>SINO.</th>
-                  <th class="sub">Subjects</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td id="course1">1</td>
-                 </tr>
-                <tr> 
-                  <td>2</td>
-                  <td id="course2">1</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td id="course3">3</td>
-                  
-                </tr>
-                <tr>
-                  <td>4:</td>
-                  <td id="course4">4</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td id="course5">5</td>
-                  
-                </tr>
-              
-              </table>
+                <th>SINO.</th>
+                <th class="sub">Subjects</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td id="course1">1</td>
+               </tr>
+              <tr> 
+                <td>2</td>
+                <td id="course2">1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td id="course3">3</td>
+                
+              </tr>
+              <tr>
+                <td>4:</td>
+                <td id="course4">4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td id="course5">5</td>
+                
+              </tr>
+            
+            </table>
             
             </div>
             <div class="card">
@@ -180,43 +257,44 @@ p{
                 <td id="course10">5</td>
                 
               </tr>
-             
-             </table>
+            
+            </table>
            
            </div>
            <div class="card">
-           >
+           
             <table class="center" height="100px" width="500px" >
               <tr>
                 <th colspan="2">Term 3</th>
               </tr>
             <tr>
-                <th>SINO.</th>
-                <th class="sub">Subjects</th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td id="course11">1</td>
-               </tr>
-              <tr> 
-                <td>2</td>
-                <td id="course12">1</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td id="course13">3</td>
-                
-              </tr>
-              <tr>
-                <td>4:</td>
-                <td id="course14">4</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td id="course15">5</td>
-                
-              </tr>
-           </table>
+              <th>SINO.</th>
+              <th class="sub">Subjects</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="course11">1</td>
+             </tr>
+            <tr> 
+              <td>2</td>
+              <td id="course12">1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="course13">3</td>
+              
+            </tr>
+            <tr>
+              <td>4:</td>
+              <td id="course14">4</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td id="course15">5</td>
+              
+            </tr>
+          
+          </table>
          
          </div>
          <div class="card">
@@ -251,14 +329,17 @@ p{
             <td id="course20">5</td>
             
           </tr>
-         
-         </table>
+        
+        </table>
        
        </div>
           </form>
            </div> 
-          </div> 
+          </div>
     </section>
-    <script src="script.js"></script>
+    <div class="buttons">
+      <button class="button2">Back</button> <button class="button3">Submit</button>
+     </div>
+     <script src="script.js"></script>
 </body>
 </html>
