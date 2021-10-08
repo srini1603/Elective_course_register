@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview page </title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
    
@@ -186,7 +187,7 @@ p{
                <p class="name">Name:RESHMA</p>
                <p class="name">Student-ID:0009876</p>
               
-              <form action="">
+              <form action="server.js" method="post" >
                <section class="hai">
                <div class="card">
                <table class="center" height="100px" width="600px" >
@@ -338,8 +339,15 @@ p{
           </div>
     </section>
     <div class="buttons">
-      <button class="button2">Back</button> <button class="button3">Submit</button>
+      <button class="button2" id="backbtn" onclick="history.back()">Back</button>
+       <button class="button3" id="submit" onclick="submitdata()" >Submit</button>
      </div>
-     <script src="script.js"></script>
+     
+     <script src="script.js">
+
+
+     </script>
+     
+     
 </body>
 </html>

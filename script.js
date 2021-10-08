@@ -1,5 +1,8 @@
 var dis = new Array;
 var mincout = 16;
+var studentname="ss";
+var idno = 77;
+
 
 function disable(ck)
 {
@@ -115,6 +118,7 @@ console.log(dis);
 var str = '';
 var  results=new Array;
 
+
 function getValue() {
 
 
@@ -136,28 +140,78 @@ function getValue() {
 }
 var sessionstring = sessionStorage.getItem('thearray');
 var page2array=JSON.parse(sessionstring);
+
+
+
+
 console.log(page2array);
+var lenpage2 = page2array.length;
+var  coursearray =["course1","course2","course3","course4","course5","course6","course7","course8","course9","course10","course11","course12","course13","course14","course15","course16","course17","course18","course19","course20"];
 window.onload=function(){
-document.getElementById("course1").innerHTML = page2array[0];
-document.getElementById("course2").innerHTML = page2array[1];
-document.getElementById("course3").innerHTML = page2array[2];
-document.getElementById("course4").innerHTML = page2array[3];
-document.getElementById("course5").innerHTML = page2array[4];
-document.getElementById("course6").innerHTML = page2array[5];
-document.getElementById("course7").innerHTML = page2array[6];
-document.getElementById("course8").innerHTML = page2array[7];
-document.getElementById("course9").innerHTML = page2array[8];
-document.getElementById("course10").innerHTML = page2array[9];
-document.getElementById("course11").innerHTML = page2array[10];
-document.getElementById("course12").innerHTML = page2array[11];
-document.getElementById("course13").innerHTML = page2array[12];
-document.getElementById("course14").innerHTML = page2array[13];
-document.getElementById("course15").innerHTML = page2array[14];
-document.getElementById("course16").innerHTML = page2array[15];
-document.getElementById("course17").innerHTML = page2array[16];
-document.getElementById("course18").innerHTML = page2array[17];
-document.getElementById("course19").innerHTML = page2array[18];
-document.getElementById("course20").innerHTML = page2array[19];
+  for( var i = 0 ; i<= lenpage2; i++){
+document.getElementById(coursearray[i]).innerHTML = page2array[i];
+  }
 
 console.log(results);
-        }
+}
+var jsresults={};
+  jsresults.name=studentname;
+  jsresults.id=idno;
+  jsresults.course1=page2array[0];
+  jsresults.course2=page2array[1];
+  jsresults.course3=page2array[2];
+  jsresults.course4=page2array[3];
+  jsresults.course5=page2array[4];
+  jsresults.course6=page2array[5];
+  jsresults.course7=page2array[6];
+  jsresults.course8=page2array[7];
+  jsresults.course9=page2array[8];
+  jsresults.course10=page2array[9];
+  jsresults.course11=page2array[10];
+  jsresults.course12=page2array[11];
+  jsresults.course13=page2array[12];
+  jsresults.course14=page2array[13];
+  jsresults.course15=page2array[14];
+  jsresults.course16=page2array[15];
+  jsresults.course17=page2array[16];
+  jsresults.course18=page2array[17];
+  jsresults.course19=page2array[18];
+  jsresults.course20=page2array[19];
+
+const tosend=JSON.stringify(jsresults);
+const xhr  = new XMLHttpRequest();
+  
+function submitdata(){
+  console.log(jsresults);
+console.log(tosend);
+let xhr = new XMLHttpRequest();
+               let url = "submit.php";
+           
+               // open a connection
+               xhr.open("POST", url, true);
+     
+               // Set the request header i.e. which type of content you are sending
+               xhr.setRequestHeader("Content-Type", "application/json");
+     
+               // Create a state change callback
+               xhr.onreadystatechange = function () {
+                   if (xhr.readyState === 4 && xhr.status === 200) {
+     
+                       // Print received data from server
+                       result.innerHTML = this.responseText;
+     
+                   }
+               };
+     
+               // Converting JSON data to string
+               var data = JSON.stringify(jsresults);
+     
+               // Sending data with the request
+               xhr.send(data);
+           }
+
+
+
+ 
+
+
