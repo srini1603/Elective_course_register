@@ -1,7 +1,8 @@
 # import sys
 
 import mysql.connector as mysql
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,send_file
+import file
 # from flask_mysqldb import MySQL
 # import random, json
 # from getpass import getpass
@@ -31,8 +32,24 @@ def preview():
 
 @app.route('/admin')
 def admin():
-	# serve index template
-	return render_template('adminpage.html')
+	output1 = file.df
+	output2 = file.df1
+	return render_template('adminpage.html', output1=output1, output2=output2)
+
+
+@app.route('/download')
+def download_file1():
+	path1 = "t1-Financial Statement Analysis - Manaswee SamalList.csv"
+
+	return send_file(path1, as_attachment=True)
+
+
+@app.route('/download')
+def download_file2():
+	path2 = "t1-IT Consulting - Sriram RajagopalanList.csv"
+	return send_file(path2, as_attachment=True)
+
+
 @app.route('/submit', methods = ['POST','GET'])
 def worker():
 	if request.method == 'POST':
