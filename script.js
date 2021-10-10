@@ -1,7 +1,7 @@
 var dis = new Array;
 var mincout = 16;
-var studentname="ss";
-var idno = 77;
+var studentname="sri";
+var idno = 71;
 
 
 function disable(ck)
@@ -184,31 +184,28 @@ const xhr  = new XMLHttpRequest();
 function submitdata(){
   console.log(jsresults);
 console.log(tosend);
-let xhr = new XMLHttpRequest();
-               let url = "submit.php";
-           
-               // open a connection
-               xhr.open("POST", url, true);
-     
-               // Set the request header i.e. which type of content you are sending
-               xhr.setRequestHeader("Content-Type", "application/json");
-     
-               // Create a state change callback
-               xhr.onreadystatechange = function () {
-                   if (xhr.readyState === 4 && xhr.status === 200) {
-     
-                       // Print received data from server
-                       result.innerHTML = this.responseText;
-     
-                   }
-               };
-     
-               // Converting JSON data to string
-               var data = JSON.stringify(jsresults);
-     
-               // Sending data with the request
-               xhr.send(data);
-           }
+fetch('/submit', {
+
+    // Specify the method
+    method: 'POST',
+
+    // JSON
+    headers: {
+        'Content-Type': 'application/json'
+    },
+
+    // A JSON payload
+    body: tosend
+}).then(function (response) { // At this point, Flask has printed our JSON
+    return response.text();
+}).then(function (text) {
+
+    console.log('POST response: ');
+
+    // Should be 'OK' if everything was successful
+    console.log(text);
+});
+}
 
 
 

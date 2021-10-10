@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <style>
     body {
@@ -71,7 +71,8 @@
 </style>
 </head>
     <body>
-        <script type="text/javascript" src="script.js"> </script>
+    <form action="preview.html" method="post"></form>
+       <script type="text/javascript" " src="{{ url_for('static', filename='script.js') }}" > </script>
         <div class="top">
             <p class="name">Name:Reshma</p>
              <p class="id">Student-ID:989746</p>
@@ -102,7 +103,7 @@
             name="Financial Statement Analysis - Manaswee Samal" 
             value="t1-Financial Statement Analysis - Manaswee Samal" 
             onclick="disable(this)"></p></td>
-            <td></td>
+          <td id =1>1</td>
         <td>Consumer Behaviour - Bharadwaj  CAP 120 Based on MM & MR Grades
             <p type="checkbox" id="t1-12" class="checks"
             name="Consumer Behaviour - Bharadwaj CAP 120 Based on MM & MR Grades" 
@@ -598,5 +599,6 @@
        
     </div>
    </div>
+    </form>
 </body>
 </html>

@@ -187,7 +187,7 @@ p{
                <p class="name">Name:RESHMA</p>
                <p class="name">Student-ID:0009876</p>
               
-              <form action="server.js" method="post" >
+              <form role="form" method="post" >
                <section class="hai">
                <div class="card">
                <table class="center" height="100px" width="600px" >
@@ -334,16 +334,17 @@ p{
         </table>
        
        </div>
-          </form>
-           </div> 
-          </div>
+           </div>
+                   </div>
     </section>
+              </form>
+
     <div class="buttons">
       <button class="button2" id="backbtn" onclick="history.back()">Back</button>
        <button class="button3" id="submit" onclick="submitdata()" >Submit</button>
      </div>
      
-     <script src="script.js">
+     <script type="text/javascript" " src="{{ url_for('static', filename='script.js') }}" > </script>
 
 
      </script>
