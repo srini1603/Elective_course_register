@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <style>
     body {
@@ -16,7 +16,7 @@
       color: #fff;
     }
 
-    
+
      table {
       width: 100%;
       min-width: 400px;
@@ -30,7 +30,7 @@
       text-transform: uppercase;
       padding: 10px;
     }
-    
+
     tr,td {
       color: black;
       border: none;
@@ -66,13 +66,12 @@
 }
 .checks{
     margin-left:300px;
-  
+
 }
 </style>
 </head>
     <body>
-    <form action="preview.html" method="post"></form>
-       <script type="text/javascript" " src="{{ url_for('static', filename='script.js') }}" > </script>
+        <script type="text/javascript" src="script.js"> </script>
         <div class="top">
             <p class="name">Name:Reshma</p>
              <p class="id">Student-ID:989746</p>
@@ -95,510 +94,508 @@
       </tr>
       <div class="hi">
       <tr>
-        
+
         <td rowspan="4">TERM-1</td>
         <td>1</td>
         <td>Financial Statement Analysis - Manaswee Samal
-            <p type="checkbox" id="t1-11" class="checks"
-            name="Financial Statement Analysis - Manaswee Samal" 
-            value="t1-Financial Statement Analysis - Manaswee Samal" 
-            onclick="disable(this)"></p></td>
-          <td id =1>1</td>
+            <input type="checkbox" id="t1-11" class="checks"
+            name="Financial Statement Analysis - Manaswee Samal"
+            value="t1-Financial Statement Analysis - Manaswee Samal"
+            onclick="disable(this)"></td>
+            <td><a href="{{ url_for('download_file1')}}" download>{{ output1 }}</a></td>
         <td>Consumer Behaviour - Bharadwaj  CAP 120 Based on MM & MR Grades
-            <p type="checkbox" id="t1-12" class="checks"
-            name="Consumer Behaviour - Bharadwaj CAP 120 Based on MM & MR Grades" 
-            value="t1-Consumer Behaviour - Bharadwaj CAP 120 Based on MM & MR Grades" 
-            onclick="disable(this)"></p></td>
+            <input type="checkbox" id="t1-12" class="checks"
+            name="Consumer Behaviour - Bharadwaj CAP 120 Based on MM & MR Grades"
+            value="t1-Consumer Behaviour - Bharadwaj CAP 120 Based on MM & MR Grades"
+            onclick="disable(this)"></td>
             <td></td>
         <td>Deep Learning - AI - Tushar Jaruhar
-            <p type="checkbox" id="t1-13" class="checks"
-            name="Deep Learning - AI - Tushar Jaruhar" 
+            <input type="checkbox" id="t1-13" class="checks"
+            name="Deep Learning - AI - Tushar Jaruhar"
             value="t1-Deep Learning - AI - Tushar Jaruhar"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Logistics & Supply Chain Management -Uppliappan Gopalan
-            <p type="checkbox" id="t1-14" class="checks"
-            name="Logistics & Supply Chain Management -Uppliappan Gopalan" 
+            <input type="checkbox" id="t1-14" class="checks"
+            name="Logistics & Supply Chain Management -Uppliappan Gopalan"
             value="t1-Logistics & Supply Chain Management -Uppliappan Gopalan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Board Room Simulation - Suresh Srinvasan
-            <p type="checkbox" id="t1-15" class="checks"
-            name="Board Room Simulation - Suresh Srinvasan" 
+            <input type="checkbox" id="t1-15" class="checks"
+            name="Board Room Simulation - Suresh Srinvasan"
             value="t1-Board Room Simulation - Suresh Srinvasan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
         <td></td>
       </tr>
       <tr>
         <td>2</td>
         <td>Managing Personal Investments -Venkatesh B
-            <p type="checkbox" id="t1-21" class="checks"
-            name="Managing Personal Investments -Venkatesh B" 
+            <input type="checkbox" id="t1-21" class="checks"
+            name="Managing Personal Investments -Venkatesh B"
             value="t1-Managing Personal Investments -Venkatesh B"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Sales and Distribution Management -Rajeswari K
-            <p type="checkbox" id="t1-22" class="checks"
-            name="Sales and Distribution Management -Rajeswari K" 
+            <input type="checkbox" id="t1-22" class="checks"
+            name="Sales and Distribution Management -Rajeswari K"
             value="t1-Sales and Distribution Management -Rajeswari K"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Data Visualization and BI - Vivekanand CAP 150 FCFS
-            <p type="checkbox" id="t1-23" class="checks"
-            name="Data Visualization and BI - Vivekanand CAP 150 FCFS" 
+            <input type="checkbox" id="t1-23" class="checks"
+            name="Data Visualization and BI - Vivekanand CAP 150 FCFS"
             value="t1-Data Visualization and BI - Vivekanand CAP 150 FCFS"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>IT Consulting - Sriram Rajagopalan
-            <p type="checkbox" id="t1-24" class="checks"
-            name="IT Consulting - Sriram Rajagopalan" 
+            <input type="checkbox" id="t1-24" class="checks"
+            name="IT Consulting - Sriram Rajagopalan"
             value="t1-IT Consulting - Sriram Rajagopalan"
-            onclick="disable(this)"></p></td>
-           <td></td>
-        <td></td>
+            onclick="disable(this)"></td>
+           <td><a href="{{ url_for('download_file2')}}" download>{{ output2 }}</a></td>
+        <td>xxxxxxxxxxx</td>
         <td></td>
       </tr>
       <tr>
         <td>3</td>
         <td>Options, Futures & Derivatives - Raghu Iyer
-            <p type="checkbox" id="t1-31" class="checks"
-            name="Options, Futures & Derivatives - Raghu Iyer" 
+            <input type="checkbox" id="t1-31" class="checks"
+            name="Options, Futures & Derivatives - Raghu Iyer"
             value="t1-Options, Futures & Derivatives - Raghu Iyer"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Brand Management - Sridhar Samu
-            <p type="checkbox" id="t1-32" class="checks"
-            name="Brand Management - Sridhar Samu" 
+            <input type="checkbox" id="t1-32" class="checks"
+            name="Brand Management - Sridhar Samu"
             value="t1-Brand Management - Sridhar Samu"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Marketing Analytics - Raghav Shyam CAP 120 Based on SMDM & MR Grades
-            <p type="checkbox" id="t1-33" class="checks"
-            name="Marketing Analytics - Raghav Shyam CAP 120 Based on SMDM & MR Grades" 
+            <input type="checkbox" id="t1-33" class="checks"
+            name="Marketing Analytics - Raghav Shyam CAP 120 Based on SMDM & MR Grades"
             value="t1-Marketing Analytics - Raghav Shyam CAP 120 Based on SMDM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Data Visualization & BI - Vivekanand CAP 150 FCFS
-            <p type="checkbox" id="t1-34" class="checks"
-            name="Data Visualization & BI - Vivekanand CAP 150 FCFS" 
+            <input type="checkbox" id="t1-34" class="checks"
+            name="Data Visualization & BI - Vivekanand CAP 150 FCFS"
             value="t1-Data Visualization & BI - Vivekanand CAP 150 FCFS"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
-        <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
       </tr>
        <tr>
         <td>4</td>
-        <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
         <td>Marketing Metrics - D Sriram
-            <p type="checkbox" id="t1-41" class="checks"
-            name="Marketing Metrics - D Sriram" 
+            <input type="checkbox" id="t1-41" class="checks"
+            name="Marketing Metrics - D Sriram"
             value="t1-Marketing Metrics - D Sriram"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        
+
       </tr>
       </div>
-       
-     
+
+
         <div class="hi">
         <tr>
         <td rowspan="5">TERM-2</td>
         <td>1</td>
         <td>Financial Modelling - Raghu Iyer
-            <p type="checkbox" id="t2-11" class="checks"
-            name="Financial Modelling - Raghu Iyer" 
+            <input type="checkbox" id="t2-11" class="checks"
+            name="Financial Modelling - Raghu Iyer"
             value="t2-Financial Modelling - Raghu Iyer"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Digital Marketing - Pradeep Racherla CAP 120 Based on MM & MR Grades
-            <p type="checkbox" id="t2-12" class="checks"
-            name="Digital Marketing - Pradeep Racherla CAP 120 Based on MM & MR Grades" 
+            <input type="checkbox" id="t2-12" class="checks"
+            name="Digital Marketing - Pradeep Racherla CAP 120 Based on MM & MR Grades"
             value="t2-Digital Marketing - Pradeep Racherla CAP 120 Based on MM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Predictive Analytics for Management -PK Viswanathan CAP 120 Based on SMDM & MR Grades
-            <p type="checkbox" id="t2-13" class="checks"
-            name="Predictive Analytics for Management -PK Viswanathan CAP 120 Based on SMDM & MR Grades" 
+            <input type="checkbox" id="t2-13" class="checks"
+            name="Predictive Analytics for Management -PK Viswanathan CAP 120 Based on SMDM & MR Grades"
             value="t2-Predictive Analytics for Management -PK Viswanathan CAP 120 Based on SMDM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Enterprise Resource Planning - Chandar Subramaniyam
-            <p type="checkbox" id="t2-14" class="checks"
+            <input type="checkbox" id="t2-14" class="checks"
             name="Enterprise Resource Planning - Chandar Subramaniyam"
              value="t2-Enterprise Resource Planning - Chandar Subramaniyam"
-             onclick="disable(this)"></p></td>
+             onclick="disable(this)"></td>
              <td></td>
         <td>Negotiation & Bargaining -Veeravalli
-            <p type="checkbox" id="t2-15" class="checks"
-            name="Negotiation & Bargaining -Veeravalli" 
+            <input type="checkbox" id="t2-15" class="checks"
+            name="Negotiation & Bargaining -Veeravalli"
             value="t2-Negotiation & Bargaining -Veeravalli"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
       </tr>
       <tr>
         <td>2</td>
         <td>Experiential Trading - Venkatesh B
-            <p type="checkbox" id="t2-21" class="checks"
-            name="Experiential Trading - Venkatesh B" 
+            <input type="checkbox" id="t2-21" class="checks"
+            name="Experiential Trading - Venkatesh B"
             value="t2-Experiential Trading - Venkatesh B"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Customer Relationship Management - D Sriram CAP 120 Based on MM & MR Grades
-            <p type="checkbox" id="t2-22" class="checks"
-            name="Customer Relationship Management - D Sriram CAP 120 Based on MM & MR Grades" 
+            <input type="checkbox" id="t2-22" class="checks"
+            name="Customer Relationship Management - D Sriram CAP 120 Based on MM & MR Grades"
             value="t2-Customer Relationship Management - D Sriram CAP 120 Based on MM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Deep Learning - AI - Tushar Jaruhar
-            <p type="checkbox" id="t2-23" class="checks"
-            name="Deep Learning - AI - Tushar Jaruhar" 
+            <input type="checkbox" id="t2-23" class="checks"
+            name="Deep Learning - AI - Tushar Jaruhar"
             value="t2-Deep Learning - AI - Tushar Jaruhar"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Project Management - Saurabh Parikh
-            <p type="checkbox" id="t2-24" class="checks"
-            name="Project Management - Saurabh Parikh" 
+            <input type="checkbox" id="t2-24" class="checks"
+            name="Project Management - Saurabh Parikh"
             value="t2-Project Management - Saurabh Parikh"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Desgin Thinking & Innovation - KC John
-            <p type="checkbox" id="t2-25" class="checks"
-            name="Desgin Thinking & Innovation - KC John" 
+            <input type="checkbox" id="t2-25" class="checks"
+            name="Desgin Thinking & Innovation - KC John"
             value="t2-Desgin Thinking & Innovation - KC John"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
       </tr>
       <tr>
         <td>3</td>
-        <td>Fixed Income Securities - Abhijit Deshmukh 
-            <p type="checkbox" id="t2-31" class="checks"
-            name="Fixed Income Securities - Abhijit Deshmukh" 
+        <td>Fixed Income Securities - Abhijit Deshmukh
+            <input type="checkbox" id="t2-31" class="checks"
+            name="Fixed Income Securities - Abhijit Deshmukh"
             value="t2-Fixed Income Securities - Abhijit Deshmukh"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades
-            <p type="checkbox" id="t2-32" class="checks"
-            name="Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades" 
+            <input type="checkbox" id="t2-32" class="checks"
+            name="Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades"
             value="t2-Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades"
-            onclick="disable(this)"> </p></td>
+            onclick="disable(this)"> </td>
             <td></td>
         <td>Customer Focused Product Planning - Seenu Srinivasan - CAP 120 Based on SMDM & MR Grades
-            <p type="checkbox" id="t2-33" class="checks"
-            name="Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades" 
+            <input type="checkbox" id="t2-33" class="checks"
+            name="Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades"
             value="t2-Customer Focused Product Planning - Seenu Srinivasan CAP 120 Based on SMDM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Strategic Operations Planning - Natarajan
-            <p type="checkbox" id="t2-34" class="checks"
-            name="Strategic Operations Planning - Natarajan" 
+            <input type="checkbox" id="t2-34" class="checks"
+            name="Strategic Operations Planning - Natarajan"
             value="t2-Strategic Operations Planning - Natarajan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
+        <td>xxxxxxxxxxx</td>
         <td></td>
-        <td></td>
-        
+
       </tr>
        <tr>
         <td>4</td>
-        <td></td>
+        <td>xxxxxxxxxxxx</td>
         <td></td>
         <td>Consumer Behaviour - Suresh Ramanathan
-            <p type="checkbox" id="t2-41" class="checks"
-            name="Consumer Behaviour - Suresh Ramanathan" 
+            <input type="checkbox" id="t2-41" class="checks"
+            name="Consumer Behaviour - Suresh Ramanathan"
             value="t2-Consumer Behaviour - Suresh Ramanathan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>AI and its Implications in a ComplexDigital World - Nikhil Sikka & Venkat Narayanan CAP 90 Based on SMDM & MR Grades
-            <p type="checkbox" id="t2-42" class="checks"
-            name="AI and its Implications in a ComplexDigital World - Nikhil Sikka & Venkat Narayanan CAP 90 Based on SMDM & MR Grades" 
+            <input type="checkbox" id="t2-42" class="checks"
+            name="AI and its Implications in a ComplexDigital World - Nikhil Sikka & Venkat Narayanan CAP 90 Based on SMDM & MR Grades"
             value="t2-AI and its Implications in a ComplexDigital World - Nikhil Sikka & Venkat Narayanan CAP 90 Based on SMDM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Production Planning & Control - Chandra Prakash
-            <p type="checkbox" id="t2-43" class="checks"
-            name="Production Planning & Control - Chandra Prakash" 
+            <input type="checkbox" id="t2-43" class="checks"
+            name="Production Planning & Control - Chandra Prakash"
             value="t2-Production Planning & Control - Chandra Prakash"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
-        <td></td>
+        <td>xxxxxxxxxxx</td>
         <td></td>
       </tr>
-      
+
        <tr>
         <td>5</td>
         <td>Negotiation & Bargaining - Veeravalli
-            <p type="checkbox" id="t2-51" class="checks"
-            name="Negotiation & Bargaining - Veeravalli" 
+            <input type="checkbox" id="t2-51" class="checks"
+            name="Negotiation & Bargaining - Veeravalli"
             value="t2-Negotiation & Bargaining - Veeravalli"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
             <td>Desgin Thinking & Innovation - KC John
-            <p type="checkbox" id="t2-52" class="checks"
-            name="Desgin Thinking & Innovation - KC John" 
+            <input type="checkbox" id="t2-52" class="checks"
+            name="Desgin Thinking & Innovation - KC John"
             value="t2-Desgin Thinking & Innovation - KC John"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
+        <td>xxxxxxxxxxxx></td>
         <td></td>
+        <td>xxxxxxxxxxxx</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>xxxxxxxxxxxx</td>
         <td></td>
       </tr>
-      </div>  
+      </div>
       <div class="hi">
       <tr>
-        
+
         <td rowspan="4">TERM-3</td>
         <td>1</td>
         <td>Financial Risk Management - Satish Krishnan
-            <p type="checkbox" id="t3-11" class="checks"
-            name="Financial Risk Management - Satish Krishnan" 
+            <input type="checkbox" id="t3-11" class="checks"
+            name="Financial Risk Management - Satish Krishnan"
             value="t2-Financial Risk Management - Satish Krishnan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Advanced Marketing Strategy - Suresh Ramanathan CAP 60 CAP 120 Based on MM & MR Grades
-            <p type="checkbox" id="t3-12" class="checks"
-            name="Advanced Marketing Strategy - Suresh Ramanathan CAP 60 CAP 120 Based on MM & MR Grades" 
+            <input type="checkbox" id="t3-12" class="checks"
+            name="Advanced Marketing Strategy - Suresh Ramanathan CAP 60 CAP 120 Based on MM & MR Grades"
             value="t3-Advanced Marketing Strategy - Suresh Ramanathan CAP 60 CAP 120 Based on MM & MR Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Multivariate Machine Learning Algorithms -
-            <p type="checkbox" id="t3-13" class="checks"
-            name="Multivariate Machine Learning Algorithms -" 
+            <input type="checkbox" id="t3-13" class="checks"
+            name="Multivariate Machine Learning Algorithms -"
             value="t3-Multivariate Machine Learning Algorithms -"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Time Series Forecasting - Sandeep Srivatsan
-            <p type="checkbox" id="t3-14" class="checks"
-            name="Time Series Forecating - Sandeep Srivatsan" 
+            <input type="checkbox" id="t3-14" class="checks"
+            name="Time Series Forecating - Sandeep Srivatsan"
             value="t3-Time Series Forecating - Sandeep Srivatsan"
-            onclick="disable(this)"></p> </td>
+            onclick="disable(this)"> </td>
             <td></td>
         <td>New Venture Planning - KC John
-            <p type="checkbox" id="t3-15" class="checks"
-            name="New Venture Planning - KC John" 
+            <input type="checkbox" id="t3-15" class="checks"
+            name="New Venture Planning - KC John"
             value="t3-New Venture Planning - KC John"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
       </tr>
       <tr>
         <td>2</td>
         <td>Investment Banking - Pratap Giri
-            <p type="checkbox" id="t3-21" class="checks"
-            name="Investment Banking - Pratap Giri" 
+            <input type="checkbox" id="t3-21" class="checks"
+            name="Investment Banking - Pratap Giri"
             value="t3-Investment Banking - Pratap Giri"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Services Marketing - Kasturi Rangan
-            <p type="checkbox" id="t3-22" class="checks"
-            name="Services Marketing - Kasturi Rangan" 
+            <input type="checkbox" id="t3-22" class="checks"
+            name="Services Marketing - Kasturi Rangan"
             value="t3-Services Marketing - Kasturi Rangan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>BlockChain - Ashish Rathore CAP 120 Based on FA, SMDM & FM Grades
-            <p type="checkbox" id="t3-23" class="checks"
-            name="BlockChain - Ashish Rathore CAP 120 Based on FA, SMDM & FM Grades" 
+            <input type="checkbox" id="t3-23" class="checks"
+            name="BlockChain - Ashish Rathore CAP 120 Based on FA, SMDM & FM Grades"
             value="t3-BlockChain - Ashish Rathore CAP 120 Based on FA, SMDM & FM Grades"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Supply Chain Optimization -
-            <p type="checkbox" id="t3-24" class="checks"
-            name="Supply Chain Optimization -" 
+            <input type="checkbox" id="t3-24" class="checks"
+            name="Supply Chain Optimization -"
             value="t3-Supply Chain Optimization -"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
-        <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
       </tr>
       <tr>
         <td>3</td>
         <td>Time Series Forecating - Sandeep Srivatsan
-            <p type="checkbox" id="t3-31" class="checks"
-            name="Time Series Forecating - Sandeep Srivatsan" 
+            <input type="checkbox" id="t3-31" class="checks"
+            name="Time Series Forecating - Sandeep Srivatsan"
             value="t3-Time Series Forecating - Sandeep Srivatsan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Integrated Marketing Communications - Rajeswari
-            <p type="checkbox" id="t3-32" class="checks"
-            name="Integrated Marketing Communications - Rajeswari" 
+            <input type="checkbox" id="t3-32" class="checks"
+            name="Integrated Marketing Communications - Rajeswari"
             value="t3-Integrated Marketing Communications - Rajeswari"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Time Series Forecasting - SandeepSrivatsan
-            <p type="checkbox" id="t3-33" class="checks"
-            name="Time Series Forecating - Sandeep Srivatsan" 
+            <input type="checkbox" id="t3-33" class="checks"
+            name="Time Series Forecating - Sandeep Srivatsan"
             value="t3-Time Series Forecating - Sandeep Srivatsan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
         <td>Business Enterprise for Performance Excellence - Rama Shankar
-            <p type="checkbox" id="t3-34" class="checks"
-            name="Business Enterprise for Performance Excellence - Rama Shankar" 
+            <input type="checkbox" id="t3-34" class="checks"
+            name="Business Enterprise for Performance Excellence - Rama Shankar"
             value="t3-Business Enterprise for Performance Excellence - Rama Shankar"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
+        <td>xxxxxxxxxxx</td>
         <td></td>
-        <td></td>
-        
+
       </tr>
        <tr>
         <td>4</td>
         <td>Channels and Pricing Decisions - Trichy Krishnan
-            <p type="checkbox" id="t3-41" class="checks"
-            name="Channels and Pricing Decisions - Trichy Krishnan" 
+            <input type="checkbox" id="t3-41" class="checks"
+            name="Channels and Pricing Decisions - Trichy Krishnan"
             value="t3-Channels and Pricing Decisions - Trichy Krishnan"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
-        <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
         <td>Web & Social Media Analytics - Sowmya Vivek
-            <p type="checkbox" id="t3-34" class="checks"
-            name="Web & Social Media Analytics - Sowmya Vivek" 
+            <input type="checkbox" id="t3-34" class="checks"
+            name="Web & Social Media Analytics - Sowmya Vivek"
             value="t3-Web & Social Media Analytics - Sowmya Vivek"
-            onclick="disable(this)"></p></td>
+            onclick="disable(this)"></td>
             <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
+        <td>xxxxxxxxxx</td>
         <td></td>
-        <td></td>
-        <td></td>
-        
+
       </tr>
       </div>
       <div class="hi">
         <tr>
-          
+
           <td rowspan="4">TERM-4</td>
           <td>1</td>
           <td>Computational Finance - Sameer Ranjan
-              <p type="checkbox" id="t4-11" class="checks"
-              name="Computational Finance - Sameer Ranjan" 
+              <input type="checkbox" id="t4-11" class="checks"
+              name="Computational Finance - Sameer Ranjan"
               value="t4-Computational Finance - Sameer Ranjan"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Markstrat Simulation - Easwar Iyer
-              <p type="checkbox" id="t4-12" class="checks"
-              name="Markstrat Simulation - Easwar Iyer" 
+              <input type="checkbox" id="t4-12" class="checks"
+              name="Markstrat Simulation - Easwar Iyer"
               value="t4-Markstrat Simulation - Easwar Iyer"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Financial Risk Analytics - Tushar Jaruhar / Jayatu Sen
-              <p type="checkbox" id="t4-13" class="checks"
-              name="Financial Risk Analytics - Tushar Jaruhar / Jayatu Sen" 
+              <input type="checkbox" id="t4-13" class="checks"
+              name="Financial Risk Analytics - Tushar Jaruhar / Jayatu Sen"
               value="t4-Financial Risk Analytics - Tushar Jaruhar / Jayatu Sen"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Total Quality Management - Badri Kidambi
-              <p type="checkbox" id="t4-14" class="checks"
-              name="Total Quality Management - Badri Kidambi" 
+              <input type="checkbox" id="t4-14" class="checks"
+              name="Total Quality Management - Badri Kidambi"
               value="t4-Total Quality Management - Badri Kidambi"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
 
           <td>International Business Strategy-KN Vaidyanat
-              <p type="checkbox" id="t4-15" class="checks"
-              name="International Business Strategy-KN Vaidyanat" 
+              <input type="checkbox" id="t4-15" class="checks"
+              name="International Business Strategy-KN Vaidyanat"
               value="t4-International Business Strategy-KN Vaidyanat"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
         </tr>
         <tr>
           <td>2</td>
            <td>Financial Risk Analytics - Tushar Jaruhar Jayatu Sen
-               <p type="checkbox" id="t4-21" class="checks"
-               name="Financial Risk Analytics - Tushar Jaruhar Jayatu Sen" 
+               <input type="checkbox" id="t4-21" class="checks"
+               name="Financial Risk Analytics - Tushar Jaruhar Jayatu Sen"
                value="t4-Financial Risk Analytics - Tushar Jaruhar Jayatu Sen"
-               onclick="disable(this)"></p></td>
-              
+               onclick="disable(this)"></td>
                <td></td>
           <td>New Product Development - Rajeswari K
-              <p type="checkbox" id="t4-22" class="checks"
+              <input type="checkbox" id="t4-22" class="checks"
               name="New Product Development - Rajeswari K"
               value="t4-New Product Development - Rajeswari K"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Natural Language Processing - Sowmya Vivek
-              <p type="checkbox" id="t4-23" class="checks"
-              name="Natural Language Processing - Sowmya Vivek" 
+              <input type="checkbox" id="t4-23" class="checks"
+              name="Natural Language Processing - Sowmya Vivek"
               value="t4-Natural Language Processing - Sowmya Vivek"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Service Operations Management - Chandra Prakash
-              <p type="checkbox" id="t4-24" class="checks"
-              name="Service Operations Management - Chandra Prakash" 
+              <input type="checkbox" id="t4-24" class="checks"
+              name="Service Operations Management - Chandra Prakash"
               value="t4-Service Operations Management - Chandra Prakash"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
+          <td>xxxxxxxxx</td>
           <td></td>
-          <td></td> 
 
         </tr>
         <tr>
           <td>3</td>
           <td>Mergers, Acquisitions& Corporate Restructuring - Ramanujam B
-              <p type="checkbox" id="t4-31" class="checks"
-              name="Mergers, Acquisitions& Corporate Restructuring - Ramanujam B" 
+              <input type="checkbox" id="t4-31" class="checks"
+              name="Mergers, Acquisitions& Corporate Restructuring - Ramanujam B"
               value="t4-Mergers, Acquisitions& Corporate Restructuring - Ramanujam B"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>B2B Marketing - Kasturi Rangan R
-              <p type="checkbox" id="t4-32" class="checks"
-              name="B2B Marketing - Kasturi Rangan R" 
+              <input type="checkbox" id="t4-32" class="checks"
+              name="B2B Marketing - Kasturi Rangan R"
               value="t4-B2B Marketing - Kasturi Rangan R"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Business Applications for AI - Gurumoorthy
-              <p type="checkbox" id="t4-33" class="checks"
-              name="Business Applications for AI - Gurumoorthy" 
+              <input type="checkbox" id="t4-33" class="checks"
+              name="Business Applications for AI - Gurumoorthy"
               value="t4-Business Applications for AI - Gurumoorthy"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
           <td>Sustainable Operations -
-              <p type="checkbox" id="t4-34" class="checks"
-              name="Sustainable Operations -" 
+              <input type="checkbox" id="t4-34" class="checks"
+              name="Sustainable Operations -"
               value="t4-Sustainable Operations -"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
+          <td>xxxxxxxxxxx</td>
           <td></td>
-          <td></td>
-          
+
         </tr>
          <tr>
           <td>4</td>
           <td>Applied Behavioural Economics - Vidya Mahambare
-              <p type="checkbox" id="t4-41" class="checks"
-              name="Applied Behavioural Economics - Vidya Mahambare" 
+              <input type="checkbox" id="t4-41" class="checks"
+              name="Applied Behavioural Economics - Vidya Mahambare"
               value="t4-Applied Behavioural Economics - Vidya Mahambare"
-              onclick="disable(this)"></p></td>
+              onclick="disable(this)"></td>
               <td></td>
+          <td>xxxxxxxxxxx</td>
           <td></td>
+          <td>xxxxxxxxxxx</td>
           <td></td>
+          <td>xxxxxxxxxxx</td>
           <td></td>
+          <td>xxxxxxxxxxx</td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          
+
         </tr>
     </div>
         </table>
-    
+
 </div>
- 
+
  <div class="bottom">
     <div class="container1" style="margin: 100px 50px;
-    font-size: 20px;">  
-       
+    font-size: 20px;">
+       <button class="button2" onclick="getValue();return false;">Submit</button>
     </div>
    </div>
-    </form>
 </body>
 </html>
