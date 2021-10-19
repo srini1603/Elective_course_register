@@ -7,4 +7,6 @@ inside static place the javascript file
 
 inside templates place all the HTML file
 
+you need pandas and flask imstalled in device
+
 app.py is used as server run the app script and go the url it gives
