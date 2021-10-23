@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview page </title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style>
+   
+body,html{
+ height:100%;
+
+}
+
+h1{
+  text-align: center;
+}
+.card{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition:color 0.2s linear;
+}
+.card-item{
+  height: 650px;
+  width:900px;
+  margin:90px; 
+  background-color:white;
+  border-radius: 15px;
+  height: 650px;
+  
+  background:#f2f2f2;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+p{
+  text-align: center;
+}
+h1{
+  margin-top: 30px;
+}
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  margin-top: 80px;
+}
+
+table {
+	
+  border-collapse: collapse;
+  
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+}
+
+th,
+td {
+	padding: 15px;
+	color: #fff;
+  background-color: rgba(255,255,255,0.2);
+}
+
+th 
+{
+	text-align: left;
+}
+
+
+	th 
+  {
+		background-color: #55608f;
+	}
+  table 
+  {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  justify-content: center;
+  margin-top: 30px;
+}
+th
+{
+  text-align: center;
+}
+td, th 
+{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.name{
+  margin-top: -18px;
+}
+h1{
+  margin-top: -10px;
+}
+p{
+  text-align: center;
+  padding-top:1px;
+}
+.term{
+  margin-left: 20px;
+}
+.hai{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.center{
+  height: 100px;
+  width:600px;
+  margin-top: -10px;
+  margin-bottom:10px;
+}
+.card{
+  margin-top:    10px;
+  margin-bottom: 20px;
+  margin-left:   10px;
+  margin-right:  10px;
+}
+.buttons{
+  margin-right:130px;
+  margin-left: 130px;
+  margin-bottom: 30px;
+  margin-top: -20px;
+}
+.button3{
+  float:right;
+  margin-right: 300px;
+  margin-bottom: 10px;
+}
+.button3{
+  background: #8E2DE2;  
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #24c64f;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  transition: 0.25s;
+  width: 153px;
+  margin:20px;
+}
+.button2{
+  float:left;
+  margin-left: 300px;
+  margin-bottom: 10px;
+}
+.button2:hover
+{
+    box-shadow: 0px 1px 18px violet;
+}
+.button3:hover
+{
+    box-shadow: 0px 1px 18px violet;
+}
+.button2{
+  background: #8E2DE2;  
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  
+  background: linear-gradient(to right, #4A00E0, #8E2DE2);
+  border: none;
+  border-radius: 21px;
+  box-shadow: 0px 1px 8px #24c64f;
+  cursor: pointer;
+  color: white;
+  font-family: "Raleway SemiBold", sans-serif;
+  height: 42.3px;
+  transition: 0.25s;
+  width: 153px;
+  margin:20px;
+}
+</style>
+<body>
+          <h1>Preview Section</h1><br>
+               <p class="name" >{{user}}</p>
+             <p class="id" >{{regno}}</p>
+              
+              <form role="form" method="post" >
+               <section class="hai">
+               <div class="card">
+               <table class="center" height="100px" width="600px" >
+                <tr>
+              <th colspan="2" class="term">Term 1</th>
+              
+                </tr>
+               <tr>
+                <th>SINO.</th>
+                <th class="sub">Subjects</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td id="course1">1</td>
+               </tr>
+              <tr> 
+                <td>2</td>
+                <td id="course2">1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td id="course3">3</td>
+                
+              </tr>
+              <tr>
+                <td>4:</td>
+                <td id="course4">4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td id="course5">5</td>
+                
+              </tr>
+            
+            </table>
+            
+            </div>
+            <div class="card">
+             
+              <table class="center" height="100px" width="500px" >
+                <tr>
+                  <th colspan="2">Term 2</th>
+                </tr>
+              <tr>
+               
+                <th>SINO.</th>
+                <th class="sub">Subjects</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td id="course6">1</td>
+               </tr>
+              <tr> 
+                <td>2</td>
+                <td id="course7">1</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td id="course8">3</td>
+                
+              </tr>
+              <tr>
+                <td>4:</td>
+                <td id="course9">4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td id="course10">5</td>
+                
+              </tr>
+            
+            </table>
+           
+           </div>
+           <div class="card">
+           
+            <table class="center" height="100px" width="500px" >
+              <tr>
+                <th colspan="2">Term 3</th>
+              </tr>
+            <tr>
+              <th>SINO.</th>
+              <th class="sub">Subjects</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td id="course11">1</td>
+             </tr>
+            <tr> 
+              <td>2</td>
+              <td id="course12">1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td id="course13">3</td>
+              
+            </tr>
+            <tr>
+              <td>4:</td>
+              <td id="course14">4</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td id="course15">5</td>
+              
+            </tr>
+          
+          </table>
+         
+         </div>
+         <div class="card">
+        
+          <table class="center" height="100px" width="500px" >
+            <tr>
+              <th colspan="2" class="term">Term 4</th>
+            </tr>
+          <tr>
+            <th>SINO.</th>
+            <th class="sub">Subjects</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td id="course16">1</td>
+           </tr>
+          <tr> 
+            <td>2</td>
+            <td id="course17">1</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td id="course18">3</td>
+            
+          </tr>
+          <tr>
+            <td>4:</td>
+            <td id="course19">4</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td id="course20">5</td>
+            
+          </tr>
+        
+        </table>
+       
+       </div>
+           </div>
+                   </div>
+    </section>
+              </form>
+
+    <div class="buttons">
+      <button class="button2" id="backbtn" onclick="history.back()">Back</button>
+       <button class="button3" id="submit" onclick="submitdata()" >Submit</button>
+     </div>
+     
+     <script type="text/javascript" " src="{{ url_for('static', filename='script.js') }}" > </script>
+
+
+     </script>
+     
+     
+</body>
+</html>
