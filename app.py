@@ -201,7 +201,7 @@ cursor = db.cursor()
 @app.route('/')
 def index():
 	# serve index template #
-	return render_template('login page.html')
+	return render_template('index.html')
 @app.route('/front',methods = ['POST','GET'])
 def front():
 	# serve index template #
@@ -220,7 +220,7 @@ def front():
 			user1 = cursor.fetchone()
 			user2=list(user1)
 			print(user2)
-			return render_template('FrontPage.html')
+			return render_template('FrontPage.html',user=user,regno=pswd)
 		else:
 
 			return  render_template('login page.html')
@@ -232,7 +232,7 @@ def front():
 @app.route('/preview')
 def preview():
 	# serve index template
-	return render_template('preview.html')
+	return render_template('preview.html',user=user,regno=pswd)
 
 
 
