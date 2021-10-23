@@ -195,7 +195,13 @@ const xhr  = new XMLHttpRequest();
 function submitdata(){
   console.log(jsresults);
 console.log(tosend);
-fetch('/submit', {
+var b=document.getElementById('submit');
+var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
+
+            if(checkboxes.length==20){ //if 2 checkbox is checked only the submit button is visible
+
+                b.disabled=false;
+                fetch('/submit', {
 
     // Specify the method
     method: 'POST',
@@ -216,6 +222,11 @@ fetch('/submit', {
     // Should be 'OK' if everything was successful
     console.log(text);
 });
+
+            }
+            else{b.disabled=true;
+            alert("not selected the min");}
+
 }
 
 
