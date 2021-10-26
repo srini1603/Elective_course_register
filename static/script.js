@@ -144,7 +144,7 @@ function getValue() {
   console.log(results);
   
   sessionStorage.setItem('thearray',JSON.stringify(results));
-  window.loaction.href="preview.html";
+  window.loaction.href="/preview";
   
   
   
@@ -197,8 +197,9 @@ function submitdata(){
 console.log(tosend);
 var b=document.getElementById('submit');
 var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
-
-            if(checkboxes.length==20){ //if 2 checkbox is checked only the submit button is visible
+         
+      
+            if(lenpage2==20){ //if 2 checkbox is checked only the submit button is visible
 
                 b.disabled=false;
                 fetch('/submit', {
@@ -220,8 +221,21 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
     console.log('POST response: ');
 
     // Should be 'OK' if everything was successful
-    console.log(text);
-});
+    }
+);
+const invoice = this.document.getElementById("invoice");
+console.log(invoice);
+console.log(window);
+var opt = {
+    margin: 1,
+    filename: 'myselectedcourse.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+html2pdf().from(invoice).set(opt).save();
+
+
 
             }
             else{b.disabled=true;
