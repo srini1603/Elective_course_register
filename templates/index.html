@@ -19,7 +19,7 @@
 	}
 
 	form {
-		border: 3px solid #f1f1f1;
+		border: 3px solid #dfdddd;
 	}
 
 	/*assign full width inputs*/
@@ -57,7 +57,8 @@
 	.imgcontainer {
 		text-align: center;
 		margin: 24px 0 12px 0;
-
+        margin-top: -30px;
+		
 	}
 
 	/*set padding to the container*/
@@ -65,18 +66,31 @@
 	.container {
 		padding: 16px;
 	}
+	.whole {
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: 30%;
+	}
+	.login{
+		margin: 10px;
+	}
+	.student{
+		margin: 10px;
+	}
 </style>
 
 <body >
 	<h1>Login Page</h1><br>
-	<div id="content" style="text-align: center;">
+	<div id="content" style="text-align:left;">
 <div class="imgcontainer">
-	<img src="https://p.kindpng.com/picc/s/358-3586770_great-lakes-logo-great-lakes-institute-of-management.png"
+	<img height="190px"
+	src="https://p.kindpng.com/picc/s/358-3586770_great-lakes-logo-great-lakes-institute-of-management.png"
 		alt="Avatar" class="avatar">
-</div>
-		<div class="login" style="float:left">
+</div> 
+    <div class="whole">
+		<div class="login" style="float:left" >
 			<form id="contactForm1" action="/admin"  >
-				<h2>Admin Login</h2>
+				<h2 style="text-align: left; margin-left:15px;">Admin Login</h2>
 				<div class="container">
 					<label><b>Username</b></label>
 					<input id="email" name="user" class="txt" placeholder="Enter Email Id" type="text" required><br>
@@ -96,7 +110,7 @@
 
 
 			<form id="contactForm"  action="/front"   method="post"  >
-				<h2>Student Login</h2>
+				<h2 style="text-align: left; margin-left:15px;">Student Login</h2>
 				<div class="container">
 					<label><b>Username</b></label>
 					<input id="semail" name="user" class="txt" placeholder="Enter Email Id" type="text" required><br>
@@ -110,7 +124,7 @@
 
 				</form>
 			</div>
-
+		</div>
 <script type="text/javascript"  src="{{ url_for('static', filename='script.js') }}" > </script>
 		
 

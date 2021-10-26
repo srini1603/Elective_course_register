@@ -53,16 +53,16 @@ h1{
 table {
 	
   border-collapse: collapse;
-  
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
   background: linear-gradient(45deg, #49a09d, #5f2c82);
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
 }
 
 th,
 td {
 	padding: 15px;
 	color: #fff;
-  background-color: rgba(255,255,255,0.2);
+ 
 }
 
 th 
@@ -117,26 +117,32 @@ p{
 }
 .center{
   height: 100px;
-  width:600px;
+  width:900px;
   margin-top: -10px;
   margin-bottom:10px;
 }
 .card{
   margin-top:    10px;
   margin-bottom: 20px;
-  margin-left:   10px;
-  margin-right:  10px;
+  margin-left:   50px;
+  margin-right:  50px;
 }
 .buttons{
   margin-right:130px;
   margin-left: 130px;
   margin-bottom: 30px;
-  margin-top: -20px;
+  margin-top: -30px;
 }
 .button3{
   float:right;
   margin-right: 300px;
   margin-bottom: 10px;
+}
+@media only screen and (min-width: 1300px) {
+  .button3 {
+  margin-right:363px;
+  margin-bottom: 10px;
+  }
 }
 .button3{
   background: #8E2DE2;  
@@ -155,7 +161,7 @@ p{
 }
 .button2{
   float:left;
-  margin-left: 300px;
+  margin-left: 700px;
   margin-bottom: 10px;
 }
 .button2:hover
@@ -181,44 +187,74 @@ p{
   width: 153px;
   margin:20px;
 }
+.hi1{
+    background-color: #5687d4bd;
+}
+.hi2{
+    background-color: #3fb47ca1;
+}
+.hi4{
+    background-color:#b69743a9 ;  
+}
+.hi3{
+    background-color: #c94e4e79;  
+}
+.hi11{
+    background-color: #1d488d96;
+
+}
+.hi22{
+    background-color:#0b64397e ;
+}
+.hi44{
+    background-color: #b38a1cbd;
+
+}
+.hi33{
+background-color: #800f0f91;
+}
+h4{
+    color: whitesmoke;
+}
 </style>
 <body>
           <h1>Preview Section</h1><br>
-               <p class="name" >{{user}}</p>
-             <p class="id" >{{regno}}</p>
+          <div id="invoice">
+            <p class="name" >{{user}}</p>
+          <p class="id" >{{regno}}</p>
               
               <form role="form" method="post" >
                <section class="hai">
                <div class="card">
-               <table class="center" height="100px" width="600px" >
+               <table class="center" height="100px" width="1239px" >
                 <tr>
-              <th colspan="2" class="term">Term 1</th>
+              <th colspan="2" class="term" style="background-color: #5687d4bd ;">Term 1</th>
               
                 </tr>
                <tr>
-                <th>SINO.</th>
-                <th class="sub">Subjects</th>
+                <th style="background-color: #5687d4bd ;">SINO.</th>
+                <th style="background-color: #5687d4bd ;" class="sub">Subjects</th>
               </tr>
               <tr>
-                <td>1</td>
-                <td id="course1">1</td>
+                <td style="background-color:#1d488d96">1</td>
+                <td  style="background-color:#1d488d96" id="course1">1</td>
                </tr>
               <tr> 
-                <td>2</td>
-                <td id="course2">1</td>
+                <td style="background-color:#1d488d96">2</td>
+                <td style="background-color:#1d488d96" id="course2">1</td>
               </tr>
               <tr>
-                <td>3</td>
-                <td id="course3">3</td>
+                <td style="background-color:#1d488d96">3</td>
+                <td style="background-color:#1d488d96" id="course3">3</td>
                 
               </tr>
               <tr>
-                <td>4:</td>
-                <td id="course4">4</td>
+                <td style="background-color:#1d488d96">4:</td>
+                <td style="background-color:#1d488d96" id="course4">4</td>
               </tr>
               <tr>
-                <td>5</td>
-                <td id="course5">5</td>
+                <td style="background-color:#1d488d96"  >5</td>
+                <td style="background-color:#1d488d96" id="course5">5</td>
                 
               </tr>
             
@@ -227,35 +263,35 @@ p{
             </div>
             <div class="card">
              
-              <table class="center" height="100px" width="500px" >
+              <table class="center" height="100px" width="1239px" >
                 <tr>
-                  <th colspan="2">Term 2</th>
+                  <th colspan="2" style="background-color: #3fb47ca1 ;">Term 2</th>
                 </tr>
               <tr>
                
-                <th>SINO.</th>
-                <th class="sub">Subjects</th>
+                <th style="background-color: #3fb47ca1 ;">SINO.</th>
+                <th class="sub" style="background-color: #3fb47ca1 ;">Subjects</th>
               </tr>
               <tr>
-                <td>1</td>
-                <td id="course6">1</td>
+                <td  style="background-color: #0b64397e;" >1</td>
+                <td id="course6" style="background-color: #0b64397e;" >1 </td>
                </tr>
               <tr> 
-                <td>2</td>
-                <td id="course7">1</td>
+                <td style="background-color: #0b64397e;" >2</td>
+                <td id="course7" style="background-color: #0b64397e;" >1</td>
               </tr>
               <tr>
-                <td>3</td>
-                <td id="course8">3</td>
+                <td style="background-color: #0b64397e;" >3</td>
+                <td id="course8" style="background-color: #0b64397e;" >3</td>
                 
               </tr>
               <tr>
-                <td>4:</td>
-                <td id="course9">4</td>
+                <td style="background-color: #0b64397e;" >4:</td>
+                <td id="course9" style="background-color: #0b64397e;" >4</td>
               </tr>
               <tr>
-                <td>5</td>
-                <td id="course10">5</td>
+                <td style="background-color: #0b64397e;" >5</td>
+                <td id="course10" style="background-color: #0b64397e;" >5</td>
                 
               </tr>
             
@@ -264,34 +300,34 @@ p{
            </div>
            <div class="card">
            
-            <table class="center" height="100px" width="500px" >
+            <table class="center" height="100px" width="1239px" >
               <tr>
-                <th colspan="2">Term 3</th>
+                <th style="background-color: #c09a32cb;" colspan="2">Term 3</th>
               </tr>
             <tr>
-              <th>SINO.</th>
-              <th class="sub">Subjects</th>
+              <th style="background-color: #c09a32cb;">SINO.</th>
+              <th style="background-color: #c09a32cb;" class="sub">Subjects</th>
             </tr>
             <tr>
-              <td>1</td>
-              <td id="course11">1</td>
+              <td style="background-color: #b69743a9;">1</td>
+              <td  style="background-color: #b69743a9;"id="course11">1</td>
              </tr>
             <tr> 
-              <td>2</td>
-              <td id="course12">1</td>
+              <td style="background-color: #b69743a9;">2</td>
+              <td  style="background-color: #b69743a9;"id="course12">1</td>
             </tr>
             <tr>
-              <td>3</td>
-              <td id="course13">3</td>
+              <td style="background-color: #b69743a9;">3</td>
+              <td  style="background-color: #b69743a9;" id="course13">3</td>
               
             </tr>
             <tr>
-              <td>4:</td>
-              <td id="course14">4</td>
+              <td style="background-color: #b69743a9;">4:</td>
+              <td style="background-color: #b69743a9;" id="course14">4</td>
             </tr>
             <tr>
-              <td>5</td>
-              <td id="course15">5</td>
+              <td style="background-color: #b69743a9;">5</td>
+              <td  style="background-color: #b69743a9;"id="course15">5</td>
               
             </tr>
           
@@ -300,34 +336,34 @@ p{
          </div>
          <div class="card">
         
-          <table class="center" height="100px" width="500px" >
+          <table class="center" height="100px" width="1239px" >
             <tr>
-              <th colspan="2" class="term">Term 4</th>
+              <th  style="background-color: #a32a2a91"colspan="2" class="term">Term 4</th>
             </tr>
           <tr>
-            <th>SINO.</th>
-            <th class="sub">Subjects</th>
+            <th style="background-color:#a32a2a91 ">SINO.</th>
+            <th  style="background-color: #a32a2a91"class="sub">Subjects</th>
           </tr>
           <tr>
-            <td>1</td>
-            <td id="course16">1</td>
+            <td style="background-color: #c94e4e79">1</td>
+            <td  style="background-color: #c94e4e79" id="course16">1</td>
            </tr>
           <tr> 
-            <td>2</td>
-            <td id="course17">1</td>
+            <td style="background-color: #c94e4e79" >2</td>
+            <td style="background-color: #c94e4e79" id="course17">1</td>
           </tr>
           <tr>
-            <td>3</td>
-            <td id="course18">3</td>
+            <td style="background-color: #c94e4e79">3</td>
+            <td style="background-color: #c94e4e79" id="course18">3</td>
             
           </tr>
           <tr>
-            <td>4:</td>
-            <td id="course19">4</td>
+            <td style="background-color: #c94e4e79">4:</td>
+            <td style="background-color: #c94e4e79"id="course19">4</td>
           </tr>
           <tr>
-            <td>5</td>
-            <td id="course20">5</td>
+            <td style="background-color: #c94e4e79">5</td>
+            <td style="background-color: #c94e4e79" id="course20">5</td>
             
           </tr>
         
@@ -338,13 +374,14 @@ p{
                    </div>
     </section>
               </form>
+            </div>
 
     <div class="buttons">
       <button class="button2" id="backbtn" onclick="history.back()">Back</button>
        <button class="button3" id="submit" onclick="submitdata()" >Submit</button>
      </div>
      
-     <script type="text/javascript" " src="{{ url_for('static', filename='script.js') }}" > </script>
+     <script type="text/javascript" "  src="{{ url_for('static', filename='script.js') }}" > </script>
 
 
      </script>

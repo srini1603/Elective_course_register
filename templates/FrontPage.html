@@ -36,7 +36,8 @@
     {
       color: white;
       border: none;
-      background-color: #7a589b;
+      color: black;
+      font-weight: 550;
       PADDING:8PX;
     }
     .p
@@ -87,6 +88,34 @@
    margin-left:85%;
    font-size: 20%;
   }
+  .hi1{
+    background-color: #5687d4bd;
+}
+.hi2{
+    background-color: #3fb47ca1;
+}
+.hi4{
+    background-color:#b69743a9 ;  
+}
+.hi3{
+    background-color: #d46969cc;  
+}
+.hi11{
+    background-color: #1d488d96;
+
+}
+.hi22{
+    background-color:#0b64397e ;
+}
+.hi44{
+    background-color: #70540750;
+}
+.hi33{
+background-color: #800f0f91;
+}
+h4{
+    color: whitesmoke;
+}
 </style>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -96,7 +125,7 @@
         <form  action="/preview" method="GET">
         <div class="top">
             <p class="name" >{{user}}</p>
-             <p class="id" >{{regno}}</p>
+            <p class="id" >{{regno}}</p>
         </div>
      <div class="whole">
        <table>
@@ -110,10 +139,10 @@
         <th>OB-HR-STRATEGY</th>
         
       </tr>
-      <div class="hi" name="TERM-1">
-      <tr>
+      <div class="hi11" name="TERM-1">
+      <tr class="hi1">
         
-        <td rowspan="4">TERM-1</td>
+        <td  class="hi11" rowspan="4"><h4>TERM-2</h4></td>
         <td>1</td>
         <td>Financial Statement Analysis - Manaswee Samal
             <input type="checkbox" id="t1-11" class="term1"
@@ -143,7 +172,7 @@
             onclick="disable(this)"><span style="color:red ; font-size: small ; text-align: left;" id="11"></span></td>
         
       </tr>
-      <tr>
+      <tr class="hi1">
         <td>2</td>
         <td>Managing Personal Investments -Venkatesh B
             <input type="checkbox" id="t1-21" class="term1"
@@ -168,7 +197,7 @@
     </td>
         <td>xxxxxxxxxxx</td>
       </tr>
-      <tr>
+      <tr class="hi1">
         <td>3</td>
         <td>Options, Futures & Derivatives - Raghu Iyer
             <input type="checkbox" id="t1-31" class="term1"
@@ -193,7 +222,7 @@
         <td>xxxxxxxxxx</td>
         
       </tr>
-       <tr>
+       <tr class="hi1">
         <td>4</td>
         <td>xxxxxxxxxx</td>
         <td>Marketing Metrics - D Sriram
@@ -209,9 +238,9 @@
       </div>
        
      
-        <div class="hi" name="TERM-2">
-        <tr>
-        <td rowspan="5">TERM-2</td>
+        <div class="hi22" name="TERM-2">
+        <tr class="hi2">
+        <td class="hi22" rowspan="5"><h4>TERM-2</h4></td>
         <td>1</td>
         <td>Financial Modelling - Raghu Iyer
             <input type="checkbox" id="t2-11" class="term2"
@@ -241,7 +270,7 @@
             onclick="disable(this)"><span style="color:red ; font-size: small ; text-align: left;" id="11"></span></td>
         
       </tr>
-      <tr>
+      <tr class="hi2">
         <td>2</td>
         <td>Experiential Trading - Venkatesh B
             <input type="checkbox" id="t2-21" class="term2"
@@ -272,7 +301,7 @@
     </td>
         
       </tr>
-      <tr>
+      <tr class="hi2">
         <td>3</td>
         <td>Fixed Income Securities - Abhijit Deshmukh 
             <input type="checkbox" id="t2-31" class="term2"
@@ -299,7 +328,7 @@
         <td>xxxxxxxxxxx</td>
         
       </tr>
-       <tr>
+       <tr class="hi2">
         <td>4</td>
         <td>xxxxxxxxxxxx</td>
         <td>Consumer Behaviour - Suresh Ramanathan
@@ -321,7 +350,7 @@
         
       </tr>
       
-       <tr>
+       <tr class="hi2">
         <td>5</td>
         <td>Negotiation & Bargaining - Veeravalli
             <input type="checkbox" id="t2-51" class="term2"
@@ -342,10 +371,10 @@
         
       </tr>
       </div>  
-      <div class="hi" name="TERM-3">
-      <tr>
+      <div class="hi33" name="TERM-3">
+      <tr class="hi3">
         
-        <td rowspan="4">TERM-3</td>
+        <td  class="hi33"rowspan="4"><h4>TERM-3</h4></td>
         <td>1</td>
         <td>Financial Risk Management - Satish Krishnan
             <input type="checkbox" id="t3-11" class="term3"
@@ -378,7 +407,7 @@
             onclick="disable(this)"><span style="color:red ; font-size: small ; text-align: left;" id="same"></span></td>
         
       </tr>
-      <tr>
+      <tr class="hi3">
         <td>2</td>
         <td>Investment Banking - Pratap Giri
             <input type="checkbox" id="t3-21" class="term3"
@@ -406,7 +435,7 @@
         <td>xxxxxxxxxx</td>
         
       </tr>
-      <tr>
+      <tr class="hi3">
         <td>3</td>
         <td>Time Series Forecating - Sandeep Srivatsan
             <input type="checkbox" id="t3-31" class="term3"
@@ -434,7 +463,7 @@
         <td>xxxxxxxxxxx</td>
         
       </tr>
-       <tr>
+       <tr class="hi3">
         <td>4</td>
         <td>Channels and Pricing Decisions - Trichy Krishnan
             <input type="checkbox" id="t3-41" class="term3"
@@ -453,10 +482,10 @@
         
       </tr>
       </div>
-      <div class="hi" name="TERM-4" >
-        <tr>
+      <div class="hi44" name="TERM-4" >
+        <tr class="hi4">
           
-          <td rowspan="4">TERM-4</td>
+          <td  class="hi44" rowspan="4"><h4>TERM-4</h4></td>
           <td>1</td>
           <td>Computational Finance - Sameer Ranjan
               <input type="checkbox" id="t4-11" class="term4"
@@ -488,7 +517,7 @@
               onclick="disable(this)"><span style="color:red ; font-size: small ; text-align: left;" id="same"></span></td>
           
         </tr>
-        <tr>
+        <tr class="hi4">
           <td>2</td>
            <td>Financial Risk Analytics - Tushar Jaruhar Jayatu Sen
                <input type="checkbox" id="t4-21" class="term4"
@@ -516,7 +545,7 @@
           <td>xxxxxxxxx</td>
           
         </tr>
-        <tr>
+        <tr class="hi4">
           <td>3</td>
           <td>Mergers, Acquisitions& Corporate Restructuring - Ramanujam B
               <input type="checkbox" id="t4-31" class="term4"
@@ -544,7 +573,7 @@
           <td>xxxxxxxxxxx</td>
           
         </tr>
-         <tr>
+         <tr class="hi4">
           <td>4</td>
           <td>Applied Behavioural Economics - Vidya Mahambare
               <input type="checkbox" id="t4-41" class="term4"
