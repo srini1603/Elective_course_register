@@ -1,8 +1,8 @@
+#! C:\coding\anaconda\envs\tensor\pythonw.exe
+print("content-type: text/html\n")
 # import sys
-
 import mysql.connector as mysql
-from flask import Flask, render_template, request, jsonify,send_file, request, session, abort,flash
-#import file
+from flask import Flask, render_template, jsonify,send_file, request
 import  pandas as pd
 
 import openpyxl
@@ -185,18 +185,11 @@ detail = {'aadarsh.ft221001@greatlakes.edu.in': 'FT221001', 'aamir.ft221002@grea
 		  'vishalguha.ft224091@greatlakes.edu.in': 'FT224091', 'vishalgarg.ft224092@greatlakes.edu.in': 'FT224092',
 		  'vishraj.ft224093@greatlakes.edu.in': 'FT224093', 'vrishti.ft224094@greatlakes.edu.in': 'FT224094',
 		  'yatin.ft224095@greatlakes.edu.in': 'FT224095', 'mohdaquil.ft224096@greatlakes.edu.in': 'FT224096',
-		  'girish.ft224097@greatlakes.edu.in': 'FT224097', 'testpm@greatlakes.edu.ins': 'FT00001'};
+		  'girish.ft224097@greatlakes.edu.in': 'FT224097', 'testpm@greatlakes.edu.ins': 'FT00001'}
 
 app = Flask(__name__)
 
-db = mysql.connect(
-		host="localhost",
-		user="root",
-		passwd="1234",
-		database="testingdb"
-	)
 
-cursor = db.cursor()
 
 @app.route('/')
 def index():
@@ -248,6 +241,14 @@ def download_file2():
 	path2 = "t1-IT Consulting - Sriram RajagopalanList.csv"
 	return send_file(path2, as_attachment=True)
 
+db = mysql.connect(
+		host="localhost",
+		user="root",
+		passwd="1234",
+		database="testingdb"
+	)
+
+cursor = db.cursor()
 
 @app.route('/submit', methods = ['POST','GET'])
 def worker():
@@ -373,6 +374,12 @@ def worker():
 
 		message = {'greeting': 'Hello from Flask!'}
 		return jsonify(message)  # serialize and use JSON headers
+
+@app.errorhandler(404)
+def page_not_found(error):
+	return render_template('page_not_found.html'), 404
+
+
 
 
 @app.route('/admin')
