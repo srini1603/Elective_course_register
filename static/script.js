@@ -140,7 +140,7 @@ function getValue() {
   for (var i = 0; i < checkboxes.length; i++) {
     results.push(checkboxes[i].value);
   }
-  
+  console.log("results")
   console.log(results);
   
   sessionStorage.setItem('thearray',JSON.stringify(results));
@@ -154,7 +154,7 @@ var page2array=JSON.parse(sessionstring);
 
 
 
-
+console.log("page2")
 console.log(page2array);
 var lenpage2 = page2array.length;
 var  coursearray =["course1","course2","course3","course4","course5","course6","course7","course8","course9","course10","course11","course12","course13","course14","course15","course16","course17","course18","course19","course20"];
@@ -165,67 +165,53 @@ document.getElementById(coursearray[i]).innerHTML = page2array[i];
 
 console.log(results);
 }
+var temp =page2array.toString();
 var jsresults={};
-  jsresults.name=studentname;
-  jsresults.id=idno;
-  jsresults.course1=page2array[0];
-  jsresults.course2=page2array[1];
-  jsresults.course3=page2array[2];
-  jsresults.course4=page2array[3];
-  jsresults.course5=page2array[4];
-  jsresults.course6=page2array[5];
-  jsresults.course7=page2array[6];
-  jsresults.course8=page2array[7];
-  jsresults.course9=page2array[8];
-  jsresults.course10=page2array[9];
-  jsresults.course11=page2array[10];
-  jsresults.course12=page2array[11];
-  jsresults.course13=page2array[12];
-  jsresults.course14=page2array[13];
-  jsresults.course15=page2array[14];
-  jsresults.course16=page2array[15];
-  jsresults.course17=page2array[16];
-  jsresults.course18=page2array[17];
-  jsresults.course19=page2array[18];
-  jsresults.course20=page2array[19];
-
+  jsresults.course1=page2array;
 const tosend=JSON.stringify(jsresults);
 const xhr  = new XMLHttpRequest();
+var insert=new Array;
   
 function submitdata(){
+  console.log(temp);
   console.log(jsresults);
 console.log(tosend);
 var b=document.getElementById('submit');
 var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
          
       
-            if(lenpage2==20){ //if 2 checkbox is checked only the submit button is visible
+            if(lenpage2==18){ //if 2 checkbox is checked only the submit button is visible
 
                 b.disabled=false;
+
                 fetch('/submit', {
 
-    // Specify the method
-    method: 'POST',
-
-    // JSON
-    headers: {
-        'Content-Type': 'application/json'
-    },
-
-    // A JSON payload
-    body: tosend
-}).then(function (response) { // At this point, Flask has printed our JSON
-    return response.text();
-}).then(function (text) {
-
-    console.log('POST response: ');
-
-    // Should be 'OK' if everything was successful
-    }
-);
-const invoice = this.document.getElementById("invoice");
-console.log(invoice);
-console.log(window);
+                  // Specify the method
+                  method: 'POST',
+              
+                  // JSON
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+              
+                  // A JSON payload
+                  body: tosend
+              }).then(function (response) { // At this point, Flask has printed our JSON
+                  return response.text();
+              }).then(function (text) {
+              
+                  console.log('POST response: ');
+              
+                  // Should be 'OK' if everything was successful
+                  }
+              );
+                
+                
+                
+                
+              const invoice = this.document.getElementById("invoice");
+              console.log(invoice);
+              console.log(window);
 var opt = {
     margin: 1,
     filename: 'myselectedcourse.pdf',
