@@ -1,4 +1,6 @@
 #! C:\coding\anaconda\envs\tensor\pythonw.exe
+import json
+
 print("content-type: text/html\n")
 # import sys
 import mysql.connector as mysql
@@ -225,12 +227,22 @@ def front():
 			cursor.execute("""SELECT * FROM course2 WHERE regno='{}';""".format(pswd))
 			indicourse = cursor.fetchall()
 			print(indicourse)
+			if indicourse == None:
+				indicourse=["ss"]
+				return indicourse
+			else:
+				indicourse=list(indicourse)
+				temp=indicourse[0]
+				l1=list(temp)
+				l1.pop(0)
+				indicourse=l1
 
+				print(indicourse)
 
-			return render_template('FrontPage.html',user=user,regno=pswd)
+			return render_template('FrontPage.html',user=user,regno=pswd,indicourse=json.dumps(indicourse))
 		else:
 
-			return  render_template('login page.html')
+			return  render_template('index.html')
 
 
 
@@ -250,7 +262,7 @@ def download_file1():
 	return send_file(path1, as_attachment=True)
 
 
-@app.route('/download')
+@app.route('/download1')
 def download_file2():
 	path2 = "t1-IT Consulting - Sriram RajagopalanList.csv"
 	return send_file(path2, as_attachment=True)
@@ -261,65 +273,108 @@ def download_file2():
 def worker():
 	if request.method == 'POST':
 		print('Incoming..')
-		print(request.get_json())# parse as JSON
-		datas=request.get_json()
+		data = request.json
+
+		print(request.get_json())
+
+		insert = request.json['course1']
+		print(insert)
+		#
+		# course1 = "NULL"
+		# course2 = "NULL"
+		# course3 = "NULL"
+		# course4 = "NULL"
+		# course5 = "NULL"
+		# course6 = "NULL"
+		# course7 = "NULL"
+		# course8 = "NULL"
+		# course9 = "NULL"
+		# course10 = "NULL"
+		# course11 = "NULL"
+		# course12 = "NULL"
+		# course13 = "NULL"
+		# course14 = "NULL"
+		# course15 = "NULL"
+		# course16 = "NULL"
+		# course17 = "NULL"
+		# course18 = "NULL"
+		# course19 = "NULL"
+		# course20 = "NULL"
+		#and i in range(20)
+
+
 		s_id=pswd
 		s_name = user
-		course1 = request.json['course1']
-		course2 = request.json['course2']
-		course3 = request.json['course3']
-		course4 = request.json['course4']
-		course5 = request.json['course5']
-		course6 = request.json['course6']
-		course7 = request.json['course7']
-		course8 = request.json['course8']
-		course9 = request.json['course9']
-		course10 = request.json['course10']
-		course11 = request.json['course11']
-		course12 = request.json['course12']
-		course13 = request.json['course13']
-		course14 = request.json['course14']
-		course15 = request.json['course15']
-		course16 = request.json['course16']
-		course17 = request.json['course17']
-		course18 = request.json['course18']
-		course19 = request.json['course19']
-		course20 = request.json['course20']
-		values = ( s_name,s_id, course1, course2, course3, course4, course5, course6, course7, course8, course9, course10, course11 , course12, course13, course14, course15, course16, course17, course18, course19, course20)
 
+		course= {"course1":None,"course2":None,"course3":None,"course4":None,"course5":None,"course6":None,"course7":None,"course8":None,"course9":None,"course10":None,"course11":None,"course12":None,"course13":None,"course14":None,"course15":None,"course16":None,"course17":None,"course18":None,"course19":None,"course20":None}
+		temp_course=["course1", "course2", "course3", "course4", "course5", "course6", "course7", "course8", "course9", "course10",
+		"course11", "course12", "course13", "course14", "course15", "course16", "course17", "course18", "course19", "course20"]
+
+		mergeLists = dict(zip(temp_course, insert))
+
+		course.update(mergeLists)
+		print(course)
+
+		course1 = course["course1"]
+		course2 = course["course2"]
+		course3 = course["course3"]
+		course4 = course["course4"]
+		course5 = course["course5"]
+		course6 = course["course6"]
+		course7 = course["course7"]
+		course8 = course["course8"]
+		course9 = course["course9"]
+		course10 = course["course10"]
+		course11 = course["course11"]
+		course12 = course["course12"]
+		course13 = course["course13"]
+		course14 = course["course14"]
+		course15 = course["course15"]
+		course16 = course["course16"]
+		course17 = course["course17"]
+		course18 = course["course18"]
+		course19 = course["course19"]
+		course20 = course["course20"]
+
+		values = (
+		s_name, s_id, course1, course2, course3, course4, course5, course6, course7, course8, course9, course10,
+		course11, course12, course13, course14, course15, course16, course17, course18, course19, course20)
 
 		query = """INSERT INTO course2
-				(email,regno,course1,course2,course3,course4,course5,course6,course7,course8,course9,course10,course11,course12,course13,course14,course15,course16,course17,course18,course19,course20)
-				VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-				ON DUPLICATE KEY UPDATE
-  				  email=VALUES(email),
-  				 course1=VALUES(course1),
-  				 course2=VALUES(course2),
-  				 course3=VALUES(course3),
-  				 course4=VALUES(course4),
-  				 course5=VALUES(course5),
-  				 course6=VALUES(course6),
-  				 course7=VALUES(course7),
-  				 course8=VALUES(course8),
-  				 course9=VALUES(course9),
-  				 course10=VALUES(course10),
-  				 course11=VALUES(course11),
-  				 course12=VALUES(course12),
-  				 course13=VALUES(course13),
-  				 course14=VALUES(course14),
-  				 course15=VALUES(course15),
-  				 course16=VALUES(course16),
-  				 course17=VALUES(course17),
-  				 course18=VALUES(course18),
-  				 course19=VALUES(course19),
-  				 course20=VALUES(course20)"""
+						(email,regno,course1,course2,course3,course4,course5,course6,course7,course8,course9,course10,course11,course12,course13,course14,course15,course16,course17,course18,course19,course20)
+						VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+						ON DUPLICATE KEY UPDATE
+		  				  email=VALUES(email),
+		  				 course1=VALUES(course1),
+		  				 course2=VALUES(course2),
+		  				 course3=VALUES(course3),
+		  				 course4=VALUES(course4),
+		  				 course5=VALUES(course5),
+		  				 course6=VALUES(course6),
+		  				 course7=VALUES(course7),
+		  				 course8=VALUES(course8),
+		  				 course9=VALUES(course9),
+		  				 course10=VALUES(course10),
+		  				 course11=VALUES(course11),
+		  				 course12=VALUES(course12),
+		  				 course13=VALUES(course13),
+		  				 course14=VALUES(course14),
+		  				 course15=VALUES(course15),
+		  				 course16=VALUES(course16),
+		  				 course17=VALUES(course17),
+		  				 course18=VALUES(course18),
+		  				 course19=VALUES(course19),
+		  				 course20=VALUES(course20)"""
+
+
+
+		cursor.execute(query, values)
 
 
 
 
-		print(datas)
 
-		cursor.execute(query, values )
+		print('sucess')
 
 		db.commit()
 
