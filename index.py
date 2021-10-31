@@ -4,8 +4,14 @@ import json
 print("content-type: text/html\n")
 # import sys
 import mysql.connector as mysql
+from mysql.connector import errorcode
 from flask import Flask, render_template, jsonify,send_file, request
 import  pandas as pd
+import socket
+from _thread import *
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 import openpyxl
 # from flask_mysqldb import MySQL
@@ -191,14 +197,6 @@ detail = {'aadarsh.ft221001@greatlakes.edu.in': 'FT221001', 'aamir.ft221002@grea
 
 app = Flask(__name__)
 
-db = mysql.connect(
-		host="localhost",
-		user="root",
-		passwd="1234",
-		database="testingdb"
-	)
-
-cursor = db.cursor()
 
 
 @app.route('/')
@@ -217,6 +215,24 @@ def front():
 		pswd=request.form.get('pword')
 
 		if user in detail and pswd ==detail[user]:
+			try:
+				db = mysql.connect(
+					host="localhost",
+					user="root",
+					passwd="1234",
+					database="testingdb"
+				)
+
+				cursor = db.cursor()
+
+			except mysql.Error as err:
+				if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+					print("Something is wrong with your user name or password")
+				elif err.errno == errorcode.ER_BAD_DB_ERROR:
+					print("Database does not exist")
+				else:
+					print(err)
+
 			print(pswd, user)
 
 			cursor.execute("SELECT * FROM course2 WHERE regno =  '{}' ;".format(pswd) )
@@ -239,7 +255,7 @@ def front():
 
 				print(indicourse)
 
-			return render_template('FrontPage.html',user=user,regno=pswd,indicourse=json.dumps(indicourse))
+			return render_template('FrontPage.html',user=user,regno=pswd,indicourse=indicourse)
 		else:
 
 			return  render_template('index.html')
@@ -272,164 +288,167 @@ def download_file2():
 @app.route('/submit', methods = ['POST','GET'])
 def worker():
 	if request.method == 'POST':
-		print('Incoming..')
-		data = request.json
+		try:
+			print('Incoming..')
+			data = request.json
 
-		print(request.get_json())
+			print(request.get_json())
 
-		insert = request.json['course1']
-		print(insert)
-		#
-		# course1 = "NULL"
-		# course2 = "NULL"
-		# course3 = "NULL"
-		# course4 = "NULL"
-		# course5 = "NULL"
-		# course6 = "NULL"
-		# course7 = "NULL"
-		# course8 = "NULL"
-		# course9 = "NULL"
-		# course10 = "NULL"
-		# course11 = "NULL"
-		# course12 = "NULL"
-		# course13 = "NULL"
-		# course14 = "NULL"
-		# course15 = "NULL"
-		# course16 = "NULL"
-		# course17 = "NULL"
-		# course18 = "NULL"
-		# course19 = "NULL"
-		# course20 = "NULL"
-		#and i in range(20)
+			insert = request.json['course1']
+			print(insert)
+
+			s_id = pswd
+			s_name = user
+
+			course = {"course1": None, "course2": None, "course3": None, "course4": None, "course5": None,
+					  "course6": None, "course7": None, "course8": None, "course9": None, "course10": None,
+					  "course11": None, "course12": None, "course13": None, "course14": None, "course15": None,
+					  "course16": None, "course17": None, "course18": None, "course19": None, "course20": None}
+			temp_course = ["course1", "course2", "course3", "course4", "course5", "course6", "course7", "course8",
+						   "course9", "course10",
+						   "course11", "course12", "course13", "course14", "course15", "course16", "course17",
+						   "course18", "course19", "course20"]
+
+			mergeLists = dict(zip(temp_course, insert))
+
+			course.update(mergeLists)
+			print(course)
+
+			course1 = course["course1"]
+			course2 = course["course2"]
+			course3 = course["course3"]
+			course4 = course["course4"]
+			course5 = course["course5"]
+			course6 = course["course6"]
+			course7 = course["course7"]
+			course8 = course["course8"]
+			course9 = course["course9"]
+			course10 = course["course10"]
+			course11 = course["course11"]
+			course12 = course["course12"]
+			course13 = course["course13"]
+			course14 = course["course14"]
+			course15 = course["course15"]
+			course16 = course["course16"]
+			course17 = course["course17"]
+			course18 = course["course18"]
+			course19 = course["course19"]
+			course20 = course["course20"]
+
+			values = (
+				s_name, s_id, course1, course2, course3, course4, course5, course6, course7, course8, course9, course10,
+				course11, course12, course13, course14, course15, course16, course17, course18, course19, course20)
+
+			query = """INSERT INTO course2
+									(email,regno,course1,course2,course3,course4,course5,course6,course7,course8,course9,course10,course11,course12,course13,course14,course15,course16,course17,course18,course19,course20)
+									VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+									ON DUPLICATE KEY UPDATE
+					  				  email=VALUES(email),
+					  				 course1=VALUES(course1),
+					  				 course2=VALUES(course2),
+					  				 course3=VALUES(course3),
+					  				 course4=VALUES(course4),
+					  				 course5=VALUES(course5),
+					  				 course6=VALUES(course6),
+					  				 course7=VALUES(course7),
+					  				 course8=VALUES(course8),
+					  				 course9=VALUES(course9),
+					  				 course10=VALUES(course10),
+					  				 course11=VALUES(course11),
+					  				 course12=VALUES(course12),
+					  				 course13=VALUES(course13),
+					  				 course14=VALUES(course14),
+					  				 course15=VALUES(course15),
+					  				 course16=VALUES(course16),
+					  				 course17=VALUES(course17),
+					  				 course18=VALUES(course18),
+					  				 course19=VALUES(course19),
+					  				 course20=VALUES(course20)"""
+
+			try:
+				db = mysql.connect(
+					host="localhost",
+					user="root",
+					passwd="1234",
+					database="testingdb"
+				)
+
+				cursor = db.cursor()
+
+			except mysql.Error as err:
+				if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+					print("Something is wrong with your user name or password")
+				elif err.errno == errorcode.ER_BAD_DB_ERROR:
+					print("Database does not exist")
+				else:
+					print(err)
+
+			cursor.execute(query, values)
+
+			print('sucess')
+
+			db.commit()
+
+			print(cursor.rowcount, "record inserted")
+
+		except mysql.Error as err:
+			print("Something went wrong: {}".format(err))
+
+		finally:
+			query = "SELECT * FROM course2"  # fetching the data from data base
+
+			cursor.execute("SELECT * FROM course2")
+			results = cursor.fetchall()
+			print(results)
+			dresult_dataFrame = pd.read_sql(query, db)
+			print(dresult_dataFrame)
+
+			f1 = dresult_dataFrame.to_csv("course.csv", index=False)
+			db.close()
+			f = pd.read_csv('course.csv', header=None)
+			f.columns = ['timr', 'Regno', 'Name', 'sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8',
+						 'sub9',
+						 'sub10',
+						 'sub11',
+						 'sub12', 'sub13', 'sub14', 'sub15', 'sub16', 'sub17', 'sub18', 'sub19', 'sub20']
+
+			f.drop_duplicates(subset="Regno", keep='first', inplace=True)
+
+			d = f.sort_values(by=['sub1', 'sub2', 'sub3'], ascending=True)
+			SUBJECTList = ['t1-Financial Statement Analysis - Manaswee Samal', 't1-IT Consulting - Sriram Rajagopalan']
+			for SUBJECTName in SUBJECTList:
+				f1 = d[(d['sub1'] == SUBJECTName) | (d['sub2'] == SUBJECTName) | (d['sub3'] == SUBJECTName) | (
+						d['sub4'] == SUBJECTName) |
+					   (d['sub5'] == SUBJECTName) | (d['sub6'] == SUBJECTName) | (d['sub7'] == SUBJECTName) | (
+							   d['sub8'] == SUBJECTName) | (d['sub9'] == SUBJECTName) |
+					   (d['sub10'] == SUBJECTName) | (d['sub11'] == SUBJECTName) | (d['sub12'] == SUBJECTName) | (
+							   d['sub13'] == SUBJECTName) | (d['sub14'] == SUBJECTName) |
+					   (d['sub15'] == SUBJECTName) | (d['sub16'] == SUBJECTName) | (d['sub17'] == SUBJECTName) | (
+							   d['sub18'] == SUBJECTName) | (d['sub19'] == SUBJECTName) |
+					   (d['sub20'] == SUBJECTName)]
+
+				f1.index.name = SUBJECTName
+				f2 = f1.filter(['Name'])
+
+				for i in range(len(SUBJECTList)):
+					if SUBJECTList[i] == SUBJECTName:
+						f2.to_csv(SUBJECTName + '.csv', encoding='utf-8', index=False)
+						f4 = pd.read_csv(SUBJECTName + '.csv')
+						f4 = f2.rename(columns={'Name': SUBJECTName}, inplace=False)
+						f4.to_csv(SUBJECTName + 'List.csv', encoding='utf-8', index=False)
+			l1 = pd.read_csv(SUBJECTList[0] + 'List.csv')
+			l2 = pd.read_csv(SUBJECTList[1] + 'List.csv')
+
+			global df
+			global df1
+
+			df = len(l1.index)
+			df1 = len(l2.index)
+
+			return 'OK'
 
 
-		s_id=pswd
-		s_name = user
 
-		course= {"course1":None,"course2":None,"course3":None,"course4":None,"course5":None,"course6":None,"course7":None,"course8":None,"course9":None,"course10":None,"course11":None,"course12":None,"course13":None,"course14":None,"course15":None,"course16":None,"course17":None,"course18":None,"course19":None,"course20":None}
-		temp_course=["course1", "course2", "course3", "course4", "course5", "course6", "course7", "course8", "course9", "course10",
-		"course11", "course12", "course13", "course14", "course15", "course16", "course17", "course18", "course19", "course20"]
-
-		mergeLists = dict(zip(temp_course, insert))
-
-		course.update(mergeLists)
-		print(course)
-
-		course1 = course["course1"]
-		course2 = course["course2"]
-		course3 = course["course3"]
-		course4 = course["course4"]
-		course5 = course["course5"]
-		course6 = course["course6"]
-		course7 = course["course7"]
-		course8 = course["course8"]
-		course9 = course["course9"]
-		course10 = course["course10"]
-		course11 = course["course11"]
-		course12 = course["course12"]
-		course13 = course["course13"]
-		course14 = course["course14"]
-		course15 = course["course15"]
-		course16 = course["course16"]
-		course17 = course["course17"]
-		course18 = course["course18"]
-		course19 = course["course19"]
-		course20 = course["course20"]
-
-		values = (
-		s_name, s_id, course1, course2, course3, course4, course5, course6, course7, course8, course9, course10,
-		course11, course12, course13, course14, course15, course16, course17, course18, course19, course20)
-
-		query = """INSERT INTO course2
-						(email,regno,course1,course2,course3,course4,course5,course6,course7,course8,course9,course10,course11,course12,course13,course14,course15,course16,course17,course18,course19,course20)
-						VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-						ON DUPLICATE KEY UPDATE
-		  				  email=VALUES(email),
-		  				 course1=VALUES(course1),
-		  				 course2=VALUES(course2),
-		  				 course3=VALUES(course3),
-		  				 course4=VALUES(course4),
-		  				 course5=VALUES(course5),
-		  				 course6=VALUES(course6),
-		  				 course7=VALUES(course7),
-		  				 course8=VALUES(course8),
-		  				 course9=VALUES(course9),
-		  				 course10=VALUES(course10),
-		  				 course11=VALUES(course11),
-		  				 course12=VALUES(course12),
-		  				 course13=VALUES(course13),
-		  				 course14=VALUES(course14),
-		  				 course15=VALUES(course15),
-		  				 course16=VALUES(course16),
-		  				 course17=VALUES(course17),
-		  				 course18=VALUES(course18),
-		  				 course19=VALUES(course19),
-		  				 course20=VALUES(course20)"""
-
-
-
-		cursor.execute(query, values)
-
-
-
-
-
-		print('sucess')
-
-		db.commit()
-
-		print(cursor.rowcount, "record inserted")
-
-		query = "SELECT * FROM course2" #fetching the data from data base
-
-		cursor.execute("SELECT * FROM course2")
-		results = cursor.fetchall()
-		print(results)
-		dresult_dataFrame = pd.read_sql(query, db)
-		print(dresult_dataFrame)
-
-		f1 = dresult_dataFrame.to_csv("course.csv", index=False)
-		db.close()
-		f = pd.read_csv('course.csv', header=None)
-		f.columns = ['timr', 'Regno', 'Name', 'sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8', 'sub9',
-					 'sub10',
-					 'sub11',
-					 'sub12', 'sub13', 'sub14', 'sub15', 'sub16', 'sub17', 'sub18', 'sub19', 'sub20']
-
-		f.drop_duplicates(subset="Regno", keep='first', inplace=True)
-
-		d = f.sort_values(by=['sub1', 'sub2', 'sub3'], ascending=True)
-		SUBJECTList = ['t1-Financial Statement Analysis - Manaswee Samal', 't1-IT Consulting - Sriram Rajagopalan']
-		for SUBJECTName in SUBJECTList:
-			f1 = d[(d['sub1'] == SUBJECTName) | (d['sub2'] == SUBJECTName) | (d['sub3'] == SUBJECTName) | (
-					d['sub4'] == SUBJECTName) |
-				   (d['sub5'] == SUBJECTName) | (d['sub6'] == SUBJECTName) | (d['sub7'] == SUBJECTName) | (
-						   d['sub8'] == SUBJECTName) | (d['sub9'] == SUBJECTName) |
-				   (d['sub10'] == SUBJECTName) | (d['sub11'] == SUBJECTName) | (d['sub12'] == SUBJECTName) | (
-						   d['sub13'] == SUBJECTName) | (d['sub14'] == SUBJECTName) |
-				   (d['sub15'] == SUBJECTName) | (d['sub16'] == SUBJECTName) | (d['sub17'] == SUBJECTName) | (
-						   d['sub18'] == SUBJECTName) | (d['sub19'] == SUBJECTName) |
-				   (d['sub20'] == SUBJECTName)]
-
-			f1.index.name = SUBJECTName
-			f2 = f1.filter(['Name'])
-
-			for i in range(len(SUBJECTList)):
-				if SUBJECTList[i] == SUBJECTName:
-					f2.to_csv(SUBJECTName + '.csv', encoding='utf-8', index=False)
-					f4 = pd.read_csv(SUBJECTName + '.csv')
-					f4 = f2.rename(columns={'Name': SUBJECTName}, inplace=False)
-					f4.to_csv(SUBJECTName + 'List.csv', encoding='utf-8', index=False)
-		l1 = pd.read_csv(SUBJECTList[0] + 'List.csv')
-		l2 = pd.read_csv(SUBJECTList[1] + 'List.csv')
-
-		global df
-		global df1
-
-		df = len(l1.index)
-		df1 = len(l2.index)
-
-		return 'OK'
 
 	# GET request
 	else :
@@ -442,6 +461,34 @@ def worker():
 
 @app.route('/admin')
 def admin():
+	try:
+		db = mysql.connect(
+			host="localhost",
+			user="root",
+			passwd="1234",
+			database="testingdb"
+		)
+
+		cursor = db.cursor()
+
+	except mysql.Error as err:
+		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+			print("Something is wrong with your user name or password")
+		elif err.errno == errorcode.ER_BAD_DB_ERROR:
+			print("Database does not exist")
+		else:
+			print(err)
+
+	finally:
+		query = "SELECT * FROM course2"  # fetching the data from data base
+		cursor.execute("SELECT * FROM course2")
+		results = cursor.fetchall()
+		print(results)
+		dresult_dataFrame = pd.read_sql(query, db)
+		print(dresult_dataFrame)
+
+		f1 = dresult_dataFrame.to_csv("course.csv", index=False)
+		db.close()
 
 
 
