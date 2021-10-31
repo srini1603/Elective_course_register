@@ -20,7 +20,7 @@ import openpyxl
 # from mysql.connector import connect, Error
 
 
-detail = {'aadarsh.ft221001@greatlakes.edu.in': 'FT221001', 'aamir.ft221002@greatlakes.edu.in': 'FT221002',
+detail = {'admin@greatlakes': 'greatlakes@123','aadarsh.ft221001@greatlakes.edu.in': 'FT221001', 'aamir.ft221002@greatlakes.edu.in': 'FT221002',
 		  'aayush.ft221003@greatlakes.edu.in': 'FT221003', 'abhilasha.ft221004@greatlakes.edu.in': 'FT221004',
 		  'abhimanyu.ft221005@greatlakes.edu.in': 'FT221005', 'abhinavsingh.ft221006@greatlakes.edu.in': 'FT221006',
 		  'abhinavsharma.ft221007@greatlakes.edu.in': 'FT221007', 'abhisek.ft221008@greatlakes.edu.in': 'FT221008',
@@ -211,8 +211,10 @@ def front():
 		global user
 		global pswd
 
-		user=request.form.get('user')
-		pswd=request.form.get('pword')
+
+		user=request.form.get('suser')
+		pswd=request.form.get('spword')
+
 
 		if user in detail and pswd ==detail[user]:
 			try:
@@ -242,19 +244,17 @@ def front():
 			#fetching data
 			cursor.execute("""SELECT * FROM course2 WHERE regno='{}';""".format(pswd))
 			indicourse = cursor.fetchall()
+
 			print(indicourse)
-			if indicourse == None:
-				indicourse=["ss"]
-				return indicourse
+			if (len(indicourse)==0):
+				indicourse.append("nocourse")
 			else:
 				indicourse=list(indicourse)
 				temp=indicourse[0]
 				l1=list(temp)
 				l1.pop(0)
 				indicourse=l1
-
 				print(indicourse)
-
 			return render_template('FrontPage.html',user=user,regno=pswd,indicourse=indicourse)
 		else:
 
@@ -459,82 +459,87 @@ def worker():
 
 
 
-@app.route('/admin')
+@app.route('/admin',methods = ['POST','GET'])
 def admin():
-	try:
-		db = mysql.connect(
-			host="localhost",
-			user="root",
-			passwd="1234",
-			database="testingdb"
-		)
+	if (request.method == 'POST'):
+		admin = "greatlakes@123"
+		global adminpswd
+		adminpswd = request.form.get('adminpswd')
+		if(adminpswd==admin):
+			try:
+				db = mysql.connect(
+					host="localhost",
+					user="root",
+					passwd="1234",
+					database="testingdb"
+				)
 
-		cursor = db.cursor()
+				cursor = db.cursor()
 
-	except mysql.Error as err:
-		if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-			print("Something is wrong with your user name or password")
-		elif err.errno == errorcode.ER_BAD_DB_ERROR:
-			print("Database does not exist")
+			except mysql.Error as err:
+				if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+					print("Something is wrong with your user name or password")
+				elif err.errno == errorcode.ER_BAD_DB_ERROR:
+					print("Database does not exist")
+				else:
+					print(err)
+
+			finally:
+				query = "SELECT * FROM course2"  # fetching the data from data base
+				cursor.execute("SELECT * FROM course2")
+				results = cursor.fetchall()
+				dresult_dataFrame = pd.read_sql(query, db)
+				print(dresult_dataFrame)
+
+				f1 = dresult_dataFrame.to_csv("course.csv", index=False)
+				db.close()
+
+			f = pd.read_csv('course.csv', header=None)
+			f.columns = ['timr', 'Regno', 'Name', 'sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8',
+						 'sub9',
+						 'sub10',
+						 'sub11',
+						 'sub12', 'sub13', 'sub14', 'sub15', 'sub16', 'sub17', 'sub18', 'sub19', 'sub20']
+
+			f.drop_duplicates(subset="Regno", keep='first', inplace=True)
+
+			d = f.sort_values(by=['sub1', 'sub2', 'sub3'], ascending=True)
+			SUBJECTList = ['t1-Financial Statement Analysis - Manaswee Samal', 't1-IT Consulting - Sriram Rajagopalan']
+			for SUBJECTName in SUBJECTList:
+				f1 = d[(d['sub1'] == SUBJECTName) | (d['sub2'] == SUBJECTName) | (d['sub3'] == SUBJECTName) | (
+						d['sub4'] == SUBJECTName) |
+					   (d['sub5'] == SUBJECTName) | (d['sub6'] == SUBJECTName) | (d['sub7'] == SUBJECTName) | (
+							   d['sub8'] == SUBJECTName) | (d['sub9'] == SUBJECTName) |
+					   (d['sub10'] == SUBJECTName) | (d['sub11'] == SUBJECTName) | (d['sub12'] == SUBJECTName) | (
+							   d['sub13'] == SUBJECTName) | (d['sub14'] == SUBJECTName) |
+					   (d['sub15'] == SUBJECTName) | (d['sub16'] == SUBJECTName) | (d['sub17'] == SUBJECTName) | (
+							   d['sub18'] == SUBJECTName) | (d['sub19'] == SUBJECTName) |
+					   (d['sub20'] == SUBJECTName)]
+
+				f1.index.name = SUBJECTName
+				f2 = f1.filter(['Name'])
+
+				for i in range(len(SUBJECTList)):
+					if SUBJECTList[i] == SUBJECTName:
+						f2.to_csv(SUBJECTName + '.csv', encoding='utf-8', index=False)
+						f4 = pd.read_csv(SUBJECTName + '.csv')
+						f4 = f2.rename(columns={'Name': SUBJECTName}, inplace=False)
+						f4.to_csv(SUBJECTName + 'List.csv', encoding='utf-8', index=False)
+			l1 = pd.read_csv(SUBJECTList[0] + 'List.csv')
+			l2 = pd.read_csv(SUBJECTList[1] + 'List.csv')
+
+			global df
+			global df1
+
+			df = len(l1.index)
+			df1 = len(l2.index)
+
+			output1 = df
+			output2 = df1
+
+			return render_template('adminpage.html', output1=output1, output2=output2)
 		else:
-			print(err)
-
-	finally:
-		query = "SELECT * FROM course2"  # fetching the data from data base
-		cursor.execute("SELECT * FROM course2")
-		results = cursor.fetchall()
-		print(results)
-		dresult_dataFrame = pd.read_sql(query, db)
-		print(dresult_dataFrame)
-
-		f1 = dresult_dataFrame.to_csv("course.csv", index=False)
-		db.close()
-
-
-
-	f = pd.read_csv('course.csv', header=None)
-	f.columns = ['timr','Regno', 'Name', 'sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8', 'sub9', 'sub10',
-				 'sub11',
-				 'sub12', 'sub13', 'sub14', 'sub15', 'sub16', 'sub17', 'sub18', 'sub19', 'sub20']
-
-	f.drop_duplicates(subset="Regno", keep='first', inplace=True)
-
-	d = f.sort_values(by=['sub1', 'sub2', 'sub3'], ascending=True)
-	SUBJECTList = ['t1-Financial Statement Analysis - Manaswee Samal', 't1-IT Consulting - Sriram Rajagopalan']
-	for SUBJECTName in SUBJECTList:
-		f1 = d[(d['sub1'] == SUBJECTName) | (d['sub2'] == SUBJECTName) | (d['sub3'] == SUBJECTName) | (
-				d['sub4'] == SUBJECTName) |
-			   (d['sub5'] == SUBJECTName) | (d['sub6'] == SUBJECTName) | (d['sub7'] == SUBJECTName) | (
-					   d['sub8'] == SUBJECTName) | (d['sub9'] == SUBJECTName) |
-			   (d['sub10'] == SUBJECTName) | (d['sub11'] == SUBJECTName) | (d['sub12'] == SUBJECTName) | (
-					   d['sub13'] == SUBJECTName) | (d['sub14'] == SUBJECTName) |
-			   (d['sub15'] == SUBJECTName) | (d['sub16'] == SUBJECTName) | (d['sub17'] == SUBJECTName) | (
-					   d['sub18'] == SUBJECTName) | (d['sub19'] == SUBJECTName) |
-			   (d['sub20'] == SUBJECTName)]
-
-		f1.index.name = SUBJECTName
-		f2 = f1.filter(['Name'])
-
-		for i in range(len(SUBJECTList)):
-			if SUBJECTList[i] == SUBJECTName:
-				f2.to_csv(SUBJECTName + '.csv', encoding='utf-8', index=False)
-				f4 = pd.read_csv(SUBJECTName + '.csv')
-				f4 = f2.rename(columns={'Name': SUBJECTName}, inplace=False)
-				f4.to_csv(SUBJECTName + 'List.csv', encoding='utf-8', index=False)
-	l1 = pd.read_csv(SUBJECTList[0] + 'List.csv')
-	l2 = pd.read_csv(SUBJECTList[1] + 'List.csv')
-
-	global df
-	global df1
-
-	df = len(l1.index)
-	df1 = len(l2.index)
-
-	output1 = df
-	output2 = df1
-
-	return render_template('adminpage.html', output1=output1, output2=output2)
-
+			return render_template('index.html')
 
 
 
