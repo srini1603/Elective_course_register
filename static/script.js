@@ -2,6 +2,8 @@ var dis = new Array;
 var mincout = 16;
 var studentname="D";
 var idno = 3;
+var maxcount =18;
+var minicount = 16;
 
 
 someJavaScriptVarTabAll = '{{indicourse}}';
@@ -35,8 +37,7 @@ if(ckid.checked) {
 
     }
     if (total > term1limit) {
-      console.log("You can select maximum of " + term1limit + " checkbox.");
-      alert("You can select maximum of " + term1limit + " courses");
+      alert("max count reached");
       ckid.checked = false;
       return false;
   }
@@ -52,8 +53,7 @@ if(ckid.checked) {
 
     }
     if (total > term2limit) {
-      console.log("You can select maximum of " + term2limit + " checkbox.");
-      alert("You can select maximum of " + term2limit + " courses");
+      alert("max count reached");
       ckid.checked = false;
       return false;
   }
@@ -69,8 +69,7 @@ if(ckid.checked) {
 
     }
     if (total > term3limit) {
-      console.log("You can select maximum of " + term3limit + " checkbox.");
-      alert("You can select maximum of " + term3limit + " courses");
+      alert("max count reached");
       ckid.checked = false;
       return false;
   }
@@ -86,8 +85,7 @@ if(ckid.checked) {
 
     }
     if (total > term4limit) {
-      console.log("You can select maximum of " + term4limit + " checkbox.");
-      alert("You can select maximum of " + term4limit + " courses");
+      alert("max count reached");
       ckid.checked = false;
       return false;
   }
@@ -99,7 +97,7 @@ if(ckid.checked) {
 
     if(bol){
       if(ckid.checked==true){
-        alert('selected');
+        alert('This course is already selected');
         ckid.checked=false;
         return false;
         }
@@ -124,12 +122,6 @@ console.log(dislength);
 
 }
 
-function validateForm() {
-	
-	var un=document.getElementById("semail").value;
-	var pw=document.getElementById("spassword").value;
-
-}
 
 
   
@@ -166,7 +158,7 @@ console.log(page2array);
 var lenpage2 = page2array.length;
 var  coursearray =["course1","course2","course3","course4","course5","course6","course7","course8","course9","course10","course11","course12","course13","course14","course15","course16","course17","course18","course19","course20"];
 window.onload=function(){
-  for( var i = 0 ; i<= lenpage2; i++){
+  for( var i = 0 ; i<= lenpage2-1; i++){
 document.getElementById(coursearray[i]).innerHTML = page2array[i];
   }
 
@@ -187,11 +179,32 @@ var b=document.getElementById('submit');
 var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
          
       
-            if(lenpage2>=16 && lenpage2<=18){ //if 2 checkbox is checked only the submit button is visible
+            if(lenpage2>=mincout && lenpage2<=maxcount){ //if 2 checkbox is checked only the submit button is visible
 
-                b.disabled=false;
+              swal({
+                title: "did you selected 8 major courses?",
+                text: "have you selected a minimum of 8 courses in your major / domain?",
+                icon: "warning",
+                buttons: [
+                  'no!',
+                  'yes!'
+                ],
+                dangerMode: true,
+              }).then(function(isConfirm) {
+                if (isConfirm) {
+                  swal({
+                    title: 'Submitted!',
+                    text: 'your courses are successfully submitted!',
+                    icon: 'success'
+                  }).then(function() {
+                    div.submit();// mention ur div correctly
+                  });
 
-                fetch('/submit', {
+                  //do not touch this
+
+                  b.disabled=false; //  submit button is visible
+
+                fetch('/submit', { //fetching the data to  the server
 
                   // Specify the method
                   method: 'POST',
@@ -213,26 +226,44 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
                   }
               );
                 
-                
-                
+              //do not touch this
+              // print the course of student
                 
               const invoice = this.document.getElementById("invoice");
               console.log(invoice);
               console.log(window);
-var opt = {
-    margin: 1,
-    filename: 'myselectedcourse.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-};
-html2pdf().from(invoice).set(opt).save();
+              var opt = {
+              margin: 1,
+              filename: 'myselectedcourse.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+              html2canvas: { scale: 2 },
+              jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+              };
+            html2pdf().from(invoice).set(opt).save();
 
 
 
-            }
-            else{b.disabled=true;
-            alert("not selected the min");}
+         } else {
+                  swal("Cancelled", ":)", "error");
+                }
+              });
+
+
+      }
+
+      else if(lenpage2<minicount){b.disabled=true;
+        alert("minimum number is not selected");
+
+      }
+
+      else if(lenpage2>maxcount){b.disabled=true;
+        alert("max count reached");
+
+      }
+      
+
+        else{b.disabled=true;
+            alert("invalid");}
 
 }
 
