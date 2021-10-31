@@ -89,29 +89,30 @@
    font-size: 20%;
   }
   .hi1{
-    background-color: #5687d4bd;
+    background-color: #d2d2f0;
 }
 .hi2{
-    background-color: #3fb47ca1;
+    background-color:#e6d2f5;
 }
 .hi4{
-    background-color:#b69743a9 ;  
+    background-color:#eefaef;  
 }
 .hi3{
-    background-color: #d46969cc;  
+    background-color: #fff2f0;  
 }
 .hi11{
-    background-color: #1d488d96;
+    background-color: #7d7dceda;
 
 }
 .hi22{
-    background-color:#0b64397e ;
+    background-color:#7e509e80 ;
 }
 .hi44{
-    background-color: #70540750;
+    background-color:#a1c5a6;
 }
 .hi33{
-background-color: #800f0f91;
+background-color: #dab7b0;
+
 }
 h4{
     color: whitesmoke;
@@ -124,8 +125,8 @@ h4{
         <script type="text/javascript"  src="{{ url_for('static', filename='script.js') }}" > </script>
         <form  action="/preview" method="GET">
         <div class="top">
-            <p class="name" >{{user}}</p>
-            <p class="id" >{{regno}}</p>
+            <p class="name" id="studentname">Name:Reshma</p>
+             <p class="id" id="studentid">Student-ID:989746</p>
         </div>
      <div class="whole">
        <table>
@@ -142,7 +143,7 @@ h4{
       <div class="hi11" name="TERM-1">
       <tr class="hi1">
         
-        <td  class="hi11" rowspan="4"><h4>TERM-1</h4></td>
+        <td  class="hi11" rowspan="4"><h4>TERM-4</h4></td>
         <td>1</td>
         <td>Financial Statement Analysis - Manaswee Samal
             <input type="checkbox" id="t1-11" class="term1"
@@ -240,7 +241,7 @@ h4{
      
         <div class="hi22" name="TERM-2">
         <tr class="hi2">
-        <td class="hi22" rowspan="5"><h4>TERM-2</h4></td>
+        <td class="hi22" rowspan="5"><h4>TERM-5</h4></td>
         <td>1</td>
         <td>Financial Modelling - Raghu Iyer
             <input type="checkbox" id="t2-11" class="term2"
@@ -374,7 +375,7 @@ h4{
       <div class="hi33" name="TERM-3">
       <tr class="hi3">
         
-        <td  class="hi33"rowspan="4"><h4>TERM-3</h4></td>
+        <td  class="hi33"rowspan="4"><h4>TERM-6</h4></td>
         <td>1</td>
         <td>Financial Risk Management - Satish Krishnan
             <input type="checkbox" id="t3-11" class="term3"
@@ -485,7 +486,7 @@ h4{
       <div class="hi44" name="TERM-4" >
         <tr class="hi4">
           
-          <td  class="hi44" rowspan="4"><h4>TERM-4</h4></td>
+          <td  class="hi44" rowspan="4"><h4>TERM-7</h4></td>
           <td>1</td>
           <td>Computational Finance - Sameer Ranjan
               <input type="checkbox" id="t4-11" class="term4"
