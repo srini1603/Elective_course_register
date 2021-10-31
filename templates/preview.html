@@ -216,7 +216,12 @@ background-color: #800f0f91;
 h4{
     color: whitesmoke;
 }
+.swal-button--confirm {
+      background-color: #DD6B55;
+    }
 </style>
+<link data-require="sweet-alert@*" data-semver="0.4.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <body>
           <h1>Preview Section</h1><br>
           <div id="invoice">
@@ -237,24 +242,24 @@ h4{
               </tr>
               <tr>
                 <td style="background-color:#1d488d96">1</td>
-                <td  style="background-color:#1d488d96" id="course1">1</td>
+                <td  style="background-color:#1d488d96" id="course1"></td>
                </tr>
               <tr> 
                 <td style="background-color:#1d488d96">2</td>
-                <td style="background-color:#1d488d96" id="course2">1</td>
+                <td style="background-color:#1d488d96" id="course2"></td>
               </tr>
               <tr>
                 <td style="background-color:#1d488d96">3</td>
-                <td style="background-color:#1d488d96" id="course3">3</td>
+                <td style="background-color:#1d488d96" id="course3"></td>
                 
               </tr>
               <tr>
                 <td style="background-color:#1d488d96">4:</td>
-                <td style="background-color:#1d488d96" id="course4">4</td>
+                <td style="background-color:#1d488d96" id="course4"></td>
               </tr>
               <tr>
                 <td style="background-color:#1d488d96"  >5</td>
-                <td style="background-color:#1d488d96" id="course5">5</td>
+                <td style="background-color:#1d488d96" id="course5"></td>
                 
               </tr>
             
@@ -274,24 +279,24 @@ h4{
               </tr>
               <tr>
                 <td  style="background-color: #0b64397e;" >1</td>
-                <td id="course6" style="background-color: #0b64397e;" >1 </td>
+                <td id="course6" style="background-color: #0b64397e;" > </td>
                </tr>
               <tr> 
                 <td style="background-color: #0b64397e;" >2</td>
-                <td id="course7" style="background-color: #0b64397e;" >1</td>
+                <td id="course7" style="background-color: #0b64397e;" ></td>
               </tr>
               <tr>
                 <td style="background-color: #0b64397e;" >3</td>
-                <td id="course8" style="background-color: #0b64397e;" >3</td>
+                <td id="course8" style="background-color: #0b64397e;" ></td>
                 
               </tr>
               <tr>
                 <td style="background-color: #0b64397e;" >4:</td>
-                <td id="course9" style="background-color: #0b64397e;" >4</td>
+                <td id="course9" style="background-color: #0b64397e;" ></td>
               </tr>
               <tr>
                 <td style="background-color: #0b64397e;" >5</td>
-                <td id="course10" style="background-color: #0b64397e;" >5</td>
+                <td id="course10" style="background-color: #0b64397e;" ></td>
                 
               </tr>
             
@@ -310,24 +315,24 @@ h4{
             </tr>
             <tr>
               <td style="background-color: #b69743a9;">1</td>
-              <td  style="background-color: #b69743a9;"id="course11">1</td>
+              <td  style="background-color: #b69743a9;"id="course11"></td>
              </tr>
             <tr> 
               <td style="background-color: #b69743a9;">2</td>
-              <td  style="background-color: #b69743a9;"id="course12">1</td>
+              <td  style="background-color: #b69743a9;"id="course12"></td>
             </tr>
             <tr>
               <td style="background-color: #b69743a9;">3</td>
-              <td  style="background-color: #b69743a9;" id="course13">3</td>
+              <td  style="background-color: #b69743a9;" id="course13"></td>
               
             </tr>
             <tr>
               <td style="background-color: #b69743a9;">4:</td>
-              <td style="background-color: #b69743a9;" id="course14">4</td>
+              <td style="background-color: #b69743a9;" id="course14"></td>
             </tr>
             <tr>
               <td style="background-color: #b69743a9;">5</td>
-              <td  style="background-color: #b69743a9;"id="course15">5</td>
+              <td  style="background-color: #b69743a9;"id="course15"></td>
               
             </tr>
           
@@ -346,24 +351,24 @@ h4{
           </tr>
           <tr>
             <td style="background-color: #c94e4e79">1</td>
-            <td  style="background-color: #c94e4e79" id="course16">1</td>
+            <td  style="background-color: #c94e4e79" id="course16"></td>
            </tr>
           <tr> 
             <td style="background-color: #c94e4e79" >2</td>
-            <td style="background-color: #c94e4e79" id="course17">1</td>
+            <td style="background-color: #c94e4e79" id="course17"></td>
           </tr>
           <tr>
             <td style="background-color: #c94e4e79">3</td>
-            <td style="background-color: #c94e4e79" id="course18">3</td>
+            <td style="background-color: #c94e4e79" id="course18"></td>
             
           </tr>
           <tr>
             <td style="background-color: #c94e4e79">4:</td>
-            <td style="background-color: #c94e4e79"id="course19">4</td>
+            <td style="background-color: #c94e4e79"id="course19"></td>
           </tr>
           <tr>
             <td style="background-color: #c94e4e79">5</td>
-            <td style="background-color: #c94e4e79" id="course20">5</td>
+            <td style="background-color: #c94e4e79" id="course20"></td>
             
           </tr>
         
@@ -386,6 +391,7 @@ h4{
 
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      
      
 </body>
