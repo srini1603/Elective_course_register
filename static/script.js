@@ -183,71 +183,77 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
 
               swal({
                 title: "did you selected 8 major courses?",
-                text: "have you selected a minimum of 8 courses in your major / domain?",
-                icon: "warning",
-                buttons: [
-                  'no!',
-                  'yes!'
-                ],
-                dangerMode: true,
-              }).then(function(isConfirm) {
-                if (isConfirm) {
-                  swal({
-                    title: 'Submitted!',
-                    text: 'your courses are successfully submitted!',
-                    icon: 'success'
-                  }).then(function() {
-                    div.submit();// mention ur div correctly
-                  });
-
-                  //do not touch this
-
-                  b.disabled=false; //  submit button is visible
-
-                fetch('/submit', { //fetching the data to  the server
-
-                  // Specify the method
-                  method: 'POST',
-              
-                  // JSON
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-              
-                  // A JSON payload
-                  body: tosend
-              }).then(function (response) { // At this point, Flask has printed our JSON
-                  return response.text();
-              }).then(function (text) {
-              
-                  console.log('POST response: ');
-              
-                  // Should be 'OK' if everything was successful
-                  }
-              );
-                
-              //do not touch this
-              // print the course of student
-                
-              const invoice = this.document.getElementById("invoice");
-              console.log(invoice);
-              console.log(window);
-              var opt = {
-              margin: 1,
-              filename: 'myselectedcourse.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-              html2canvas: { scale: 2 },
-              jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-              };
-            html2pdf().from(invoice).set(opt).save();
-
-
-
-         } else {
-                  swal("Cancelled", ":)", "error");
-                }
-              });
-
+                        text: "have you selected a minimum of 8 courses in your major / domain?",
+                                  showCancelButton: true,
+                                  buttons: ['Cancel!','Confirm!'],
+                                  customClass:'swal-wide',
+                                }).then(function(isConfirm){
+                                                            if(isConfirm){
+                                                                            swal({
+                                                                                  title: "Are you sure to submit?",
+                                                                                  text: "course will be submiited!",
+                                                                                  icon: "warning",
+                                                                                  buttons: ['Cancel!','Confirm!'],
+                                                                                  dangerMode: true,
+                                                                              
+                                                                                  })
+                                                                            .then(function(isConfirm) {
+                                                                                                        if (isConfirm) {
+                                                                                                                         swal({title: 'Submitted!',text: 'your courses are successfully submitted!',icon: 'success'})
+                                                                                                                         .then(function() {
+                                                                                                                                            // mention ur download file directory
+                                                                                                                                          });
+  
+                                                               //do not touch this
+  
+                                b.disabled=false; //  submit button is visible
+  
+  fetch('/submit', { //fetching the data to  the server
+  
+    // Specify the method
+    method: 'POST',
+  
+    // JSON
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  
+    // A JSON payload
+    body: tosend
+    
+  }).then(function (response) { // At this point, Flask has printed our JSON
+    return response.text();
+  }).then(function (text) {
+  
+    console.log('POST response: ');
+  
+    // Should be 'OK' if everything was successful
+    }
+  );
+  console.log("done");
+  
+  //do not touch this
+  // print the course of student
+  
+  const invoice = this.document.getElementById("invoice");
+  console.log(invoice);
+  console.log(window);
+  var opt = {
+  margin: 1,
+  filename: 'myselectedcourse.pdf',
+  image: { type: 'jpeg', quality: 0.98 },
+  html2canvas: { scale: 2 },
+  jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().from(invoice).set(opt).save();
+  
+                                                                                                                        } 
+                                                                                                        else {swal("Cancelled", ":)", "error");}
+                                                                                                       });
+                                                                                                    
+                                                                          }
+                                                            
+                                                            });
 
       }
 
