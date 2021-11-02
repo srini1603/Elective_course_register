@@ -223,11 +223,13 @@ h4{
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <body>
           <h1>Preview Section</h1><br>
+          <div id="invoice">
                <p class="name" >{{user}}</p>
              <p class="id" >{{regno}}</p>
               
               <form role="form" method="post" >
                <section class="hai">
+            <div id="from1" >
                <div class="card">
                <table class="center" height="100px" width="1239px" >
                 <tr>
@@ -375,16 +377,17 @@ h4{
        
        </div>
            </div>
-                   </div>
+          </div>
+                  
     </section>
               </form>
-
+              
     <div class="buttons">
       <button class="button2" id="backbtn" onclick="history.back()">Back</button>
        <button class="button3" id="submit" onclick="submitdata()" >Submit</button>
        <button class="button3" id="return home" onclick="window.location.href='{{url_for('index')}}';" >return home</button>
      </div>
-     
+    </div>
      <script type="text/javascript" "  src="{{ url_for('static', filename='script.js') }}" > </script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -125,8 +125,8 @@ h4{
         <script type="text/javascript"  src="{{ url_for('static', filename='script.js') }}" > </script>
         <form  action="/preview" method="GET">
         <div class="top">
-            <p class="name" id="studentname">Name:Reshma</p>
-             <p class="id" id="studentid">Student-ID:989746</p>
+            <p class="name" id="studentname">{{user}}</p>
+             <p class="id" id="studentid">{{regno}}</p>
         </div>
      <div class="whole">
        <table>
