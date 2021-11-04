@@ -25,3 +25,5 @@ CREATE TABLE course2 (
     course19 varchar(250),
     course20 varchar(250)
 );
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
