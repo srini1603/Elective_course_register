@@ -1,0 +1,27 @@
+CREATE database testingdb;
+USE testingdb;
+CREATE TABLE course2 (
+    arrivaltime TIMESTAMP NOT NULL,
+    regno varchar(50) NOT NULL PRIMARY KEY,
+    email varchar(100) NOT NULL,
+    course1 varchar(250),
+    course2 varchar(250),
+    course3 varchar(250),
+    course4 varchar(250),
+    course5 varchar(250),
+    course6 varchar(250),
+    course7 varchar(250),
+    course8 varchar(250),
+    course9 varchar(250),
+    course10 varchar(250),
+    course11 varchar(250),
+    course12 varchar(250),
+    course13 varchar(250),
+    course14 varchar(250),
+    course15 varchar(250),
+    course16 varchar(250),
+    course17 varchar(250),
+    course18 varchar(250),
+    course19 varchar(250),
+    course20 varchar(250)
+);
