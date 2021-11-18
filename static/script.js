@@ -183,7 +183,7 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
 
               swal({
                 title: "did you selected 8 major courses?",
-                        text: "have you selected a minimum of 8 courses in your major / domain?",
+                        text: " Did you selected a minimum of 8 courses in your major / domain?",
                                   showCancelButton: true,
                                   buttons: ['Cancel!','Confirm!'],
                                   customClass:'swal-wide',
