@@ -174,7 +174,7 @@ var insert=new Array;
 function submitdata(){
   console.log(temp);
   console.log(jsresults);
-  alert("no more feasible once submitted");
+  alert("no more changes feasible once submitted");
 console.log(tosend);
 var b=document.getElementById('submit');
 var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
