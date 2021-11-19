@@ -192,7 +192,7 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
                                                             if(isConfirm){
                                                                             swal({
                                                                                   title: "Are you sure to submit?",
-                                                                                  text: "course will be submiited!",
+                                                                                  text: "course will be submitted!",
                                                                                   icon: "warning",
                                                                                   buttons: ['Cancel!','Confirm!'],
                                                                                   dangerMode: true,
