@@ -183,8 +183,8 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
             if(lenpage2>=mincout && lenpage2<=maxcount){ //if 2 checkbox is checked only the submit button is visible
 
               swal({
-                title: "did you selected 8 major courses?",
-                        text: " Did you selected a minimum of 8 courses in your major / domain?",
+                title: "Did you select 8 major courses?",
+                        text: " Did you select a minimum of 8 courses in your major / domain?",
                                   showCancelButton: true,
                                   buttons: ['Cancel!','Confirm!'],
                                   customClass:'swal-wide',
