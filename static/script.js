@@ -174,6 +174,7 @@ var insert=new Array;
 function submitdata(){
   console.log(temp);
   console.log(jsresults);
+  alert("no more changes feasible once submitted");
 console.log(tosend);
 var b=document.getElementById('submit');
 var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
@@ -182,8 +183,8 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
             if(lenpage2>=mincout && lenpage2<=maxcount){ //if 2 checkbox is checked only the submit button is visible
 
               swal({
-                title: "did you selected 8 major courses?",
-                        text: "have you selected a minimum of 8 courses in your major / domain?",
+                title: "Did you select 8 major courses?",
+                        text: " Did you select a minimum of 8 courses in your major / domain?",
                                   showCancelButton: true,
                                   buttons: ['Cancel!','Confirm!'],
                                   customClass:'swal-wide',
@@ -191,7 +192,7 @@ var checkboxes=document.querySelectorAll('input[type="checkbox"]:checked');
                                                             if(isConfirm){
                                                                             swal({
                                                                                   title: "Are you sure to submit?",
-                                                                                  text: "course will be submiited!",
+                                                                                  text: "course will be submitted!",
                                                                                   icon: "warning",
                                                                                   buttons: ['Cancel!','Confirm!'],
                                                                                   dangerMode: true,
