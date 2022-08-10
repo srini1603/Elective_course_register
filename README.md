@@ -1,4 +1,7 @@
-# clean-edited-project-code
+# full stack web application for elective course registeration 
+
+build using flask and mysql along with analatical work
+
 ask for pull request after completing
 
 create a folder name it project inside project save the pyhton file and also create two folders name it is as templates and static
